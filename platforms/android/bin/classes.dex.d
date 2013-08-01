@@ -1,0 +1,22 @@
+/Users/matt_goldspink/development/price-checker-mobile/platforms/android/bin/classes.dex : \
+/Users/matt_goldspink/development/price-checker-mobile/platforms/android/bin/classes/com/phonegap/plugins/barcodescanner/BarcodeScanner.class \
+/Users/matt_goldspink/development/price-checker-mobile/platforms/android/bin/classes/org/apache/cordova/core/Device$1.class \
+/Users/matt_goldspink/development/price-checker-mobile/platforms/android/bin/classes/org/apache/cordova/core/Device.class \
+/Users/matt_goldspink/development/price-checker-mobile/platforms/android/bin/classes/org/apache/cordova/core/NetworkManager$1.class \
+/Users/matt_goldspink/development/price-checker-mobile/platforms/android/bin/classes/org/apache/cordova/core/NetworkManager.class \
+/Users/matt_goldspink/development/price-checker-mobile/platforms/android/bin/classes/uk/co/mattgoldspink/pricechecker/BuildConfig.class \
+/Users/matt_goldspink/development/price-checker-mobile/platforms/android/bin/classes/uk/co/mattgoldspink/pricechecker/PriceCheckerMobile.class \
+/Users/matt_goldspink/development/price-checker-mobile/platforms/android/bin/classes/uk/co/mattgoldspink/pricechecker/R$array.class \
+/Users/matt_goldspink/development/price-checker-mobile/platforms/android/bin/classes/uk/co/mattgoldspink/pricechecker/R$attr.class \
+/Users/matt_goldspink/development/price-checker-mobile/platforms/android/bin/classes/uk/co/mattgoldspink/pricechecker/R$color.class \
+/Users/matt_goldspink/development/price-checker-mobile/platforms/android/bin/classes/uk/co/mattgoldspink/pricechecker/R$dimen.class \
+/Users/matt_goldspink/development/price-checker-mobile/platforms/android/bin/classes/uk/co/mattgoldspink/pricechecker/R$drawable.class \
+/Users/matt_goldspink/development/price-checker-mobile/platforms/android/bin/classes/uk/co/mattgoldspink/pricechecker/R$id.class \
+/Users/matt_goldspink/development/price-checker-mobile/platforms/android/bin/classes/uk/co/mattgoldspink/pricechecker/R$layout.class \
+/Users/matt_goldspink/development/price-checker-mobile/platforms/android/bin/classes/uk/co/mattgoldspink/pricechecker/R$menu.class \
+/Users/matt_goldspink/development/price-checker-mobile/platforms/android/bin/classes/uk/co/mattgoldspink/pricechecker/R$raw.class \
+/Users/matt_goldspink/development/price-checker-mobile/platforms/android/bin/classes/uk/co/mattgoldspink/pricechecker/R$string.class \
+/Users/matt_goldspink/development/price-checker-mobile/platforms/android/bin/classes/uk/co/mattgoldspink/pricechecker/R$xml.class \
+/Users/matt_goldspink/development/price-checker-mobile/platforms/android/bin/classes/uk/co/mattgoldspink/pricechecker/R.class \
+/Users/matt_goldspink/development/price-checker-mobile/platforms/android/bin/dexedLibs/cordova-3.0.0-3e3bf79abe7edbc42c3edc49e1259246.jar \
+/Users/matt_goldspink/development/price-checker-mobile/platforms/android/bin/dexedLibs/com.google.zxing.client.android.captureactivity-a9e39d31ef117a80baf1032c7aa89c1b.jar \
