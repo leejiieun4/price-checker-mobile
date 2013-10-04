@@ -2,12 +2,16 @@
 <widget id="uk.co.mattgoldspink.pricechecker" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>PriceCheckerMobile</name>
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+        Make Me Cash App allows you to find which sites will buy your DVDs, CDs and Games for the best prices
     </description>
-    <author email="dev@callback.apache.org" href="http://cordova.io">
-        Apache Cordova Team
+    <author email="makemecashapp@gmail.com" href="http://makemecashapp.launchrock.com">
+        Matt Goldspink
     </author>
     <access origin="*" />
     <preference name="fullscreen" value="true" />
-    <preference name="webviewbounce" value="true" />
+    <preference name="webviewbounce" value="false" />
+    <preference name="UIWebViewBounce" value="false" />
+    <preference name="show-splash-screen-spinner" value="false" />
+    <preference name="detect-data-types" value="false" />
+    <content src="index.html" />
 </widget>

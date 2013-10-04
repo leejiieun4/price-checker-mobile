@@ -83,7 +83,8 @@
 #endif
 
 // Enable this to log all exec() calls.
-#define CDV_ENABLE_EXEC_LOGGING 0
+#define CDV_ENABLE_EXEC_LOGGING 1
+#define DEBUG 1
 #if CDV_ENABLE_EXEC_LOGGING
     #define CDV_EXEC_LOG NSLog
 #else

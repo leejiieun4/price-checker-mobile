@@ -23,13 +23,6 @@ module.exports = [
         ]
     },
     {
-        "file": "plugins/com.phonegap.plugins.barcodescanner/www/barcodescanner.js",
-        "id": "com.phonegap.plugins.barcodescanner.barcodescanner",
-        "clobbers": [
-            "plugins.barcodeScanner"
-        ]
-    },
-    {
         "file": "plugins/org.apache.cordova.core.console/www/console-via-logger.js",
         "id": "org.apache.cordova.core.console.console",
         "clobbers": [
@@ -41,6 +34,13 @@ module.exports = [
         "id": "org.apache.cordova.core.console.logger",
         "clobbers": [
             "cordova.logger"
+        ]
+    },
+    {
+        "file": "plugins/com.phonegap.plugins.barcodescanner/www/barcodescanner.js",
+        "id": "com.phonegap.plugins.barcodescanner.BarcodeScanner",
+        "clobbers": [
+            "cordova.plugins.barcodeScanner"
         ]
     }
 ]

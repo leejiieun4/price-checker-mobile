@@ -8,8 +8,8 @@
       "/*": {
         "<feature name=\"Device\"><param name=\"android-package\" value=\"org.apache.cordova.core.Device\" /></feature>": 1,
         "<feature name=\"NetworkStatus\"><param name=\"android-package\" value=\"org.apache.cordova.core.NetworkManager\" /></feature>": 1,
+        "<access origin=\"http://price-app-checker.herokuapp.com/\" />": 1,
         "<feature name=\"BarcodeScanner\"><param name=\"android-package\" value=\"com.phonegap.plugins.barcodescanner.BarcodeScanner\" /></feature>": 1
-        "<access origin=\"http://price-app-checker.herokuapp.com/\" />": 1
       }
     },
     "AndroidManifest.xml": {
@@ -158,10 +158,10 @@
     "org.apache.cordova.core.network-information": {
       "PACKAGE_NAME": "uk.co.mattgoldspink.pricechecker"
     },
-    "com.phonegap.plugins.barcodescanner": {
+    "org.apache.cordova.core.console": {
       "PACKAGE_NAME": "uk.co.mattgoldspink.pricechecker"
     },
-    "org.apache.cordova.core.console": {
+    "com.phonegap.plugins.barcodescanner": {
       "PACKAGE_NAME": "uk.co.mattgoldspink.pricechecker"
     }
   },

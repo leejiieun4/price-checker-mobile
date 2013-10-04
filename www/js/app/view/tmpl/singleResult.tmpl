@@ -1,0 +1,12 @@
+<section>
+    <h3>[[= data.name]]</h3>
+    <ul class='list' >
+        [[ for (var res in data.prices) { ]]
+        <li>
+            <h3>[[= res]]</h3>
+            <h3>£[[= data.prices[res].price]]</h3>
+        </li>
+        [[ } ]]
+    </ul>
+    <p>These prices may change by the vendors on subsequent scans</p>
+</section>
