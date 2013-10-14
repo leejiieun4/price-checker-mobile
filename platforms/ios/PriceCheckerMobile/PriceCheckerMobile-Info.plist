@@ -5,7 +5,7 @@
     <key>CFBundleDevelopmentRegion</key>
     <string>English</string>
     <key>CFBundleDisplayName</key>
-    <string>Make Me Cash</string>
+    <string>${PRODUCT_NAME}</string>
     <key>CFBundleExecutable</key>
     <string>${EXECUTABLE_NAME}</string>
     <key>CFBundleIconFile</key>
@@ -16,10 +16,10 @@
       <dict>
         <key>CFBundleIconFiles</key>
         <array>
-          <string>icon-57.png</string>
-          <string>icon-57-2x.png</string>
+          <string>icon.png</string>
+          <string>icon@2x.png</string>
           <string>icon-72.png</string>
-          <string>icon-72-2x.png</string>
+          <string>icon-72@2x.png</string>
         </array>
         <key>UIPrerenderedIcon</key>
         <false/>
@@ -39,8 +39,12 @@
     <string>0.0.1</string>
     <key>LSRequiresIPhoneOS</key>
     <true/>
+    <key>NSMainNibFile</key>
+    <string></string>
     <key>NSMainNibFile~ipad</key>
     <string></string>
+    <key>UIStatusBarStyle</key>
+    <string>UIStatusBarStyleBlackTranslucent</string>
     <key>UISupportedInterfaceOrientations</key>
     <array>
       <string>UIInterfaceOrientationPortrait</string>

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <title>Make Me Cash</title>
+        <link rel="stylesheet" href="css/bootstrap.css"/></link>
+        <link rel="stylesheet" href="css/bootstrap-glyphicons.css"/></link>
+        <style>
+            * {
+                -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+            }
+
+            body {
+                -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+                -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+                -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+                font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+                font-size:12px;
+                height:100%;
+                margin:0px;
+                padding:0px;
+                text-transform:uppercase;
+                width:100%;
+            }
+            #searching {
+                display: none;
+            }
+            .searching #searching {
+                display: block;
+                margin: 1rem;
+            }
+            section {
+                padding: 0 1rem;
+            }
+            .form-group table {
+                width: 100%;
+            }
+
+            #find-the-best-price {
+                width: 100%;
+            }
+            #home, #results {
+                height: 100%;
+                width: 100%;
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                display:block;
+                -moz-transition: -moz-transforms 0.5s;
+                -webkit-transition: -webkit-transform 0.5s;
+                -o-transition: -moz-transform 0.5s;
+                transition: -webkit-transform 0.5s;
+                padding-top: 64px;
+            }
+            #results {
+                left: 100%;
+            }
+            #results .page-header {
+                margin-top: 0px;
+            }
+            #main-container .back {
+                display:none;
+                left: 40%;
+            }
+            #main-container.results #home, #main-container.results #results {
+                -webkit-transform: translate3d(-100%,0,0);
+                -moz-transform: translateX(-100%);
+                -o-transform: translate3d(-100%,0,0);
+                -ms-transform: translateX(-100%);
+                transform: translate3d(-100%,0,0);
+            }
+            #main-container.results .back {
+                display:block;
+                left: 0;
+                -moz-transition: left 0.5s;
+                -webkit-transition: left 0.5s;
+                -o-transition: left 0.5s;
+                transition: left 0.5s;
+                margin-top: 12px;
+            }
+            #back {
+                position: absolute;
+            }
+            .navbar-nav {
+                float: left;
+                margin-top: 0;
+                margin-bottom: 0;
+            }
+            .navbar-nav > li {
+                float: left;
+            }
+            .navbar-nav > li > a {
+                border-radius: 0;
+                line-height: 17px;
+                padding: 2px 0 0;
+            }
+            .container {
+                max-width: 728px;
+            }
+            .back > span {
+                position: relative;
+                z-index: 2;
+            }
+            .back > span.pointer {
+                display: block;
+                height: 20px;
+                width: 20px;
+                border-left: solid 1px rgba(79, 79, 79, 0.75);
+                border-bottom: solid 1px rgba(79, 79, 79, 0.75);
+                -webkit-transform: rotate(45deg);
+                -webkit-mask-image: -webkit-gradient(linear, left bottom, right top,
+                      from(#000000),
+                      color-stop(0.5,#000000),
+                      color-stop(0.5, transparent),
+                      to(transparent));
+                position: absolute;
+                left: -8px;
+                top: 2px;
+                z-index: 1
+            }
+            .back:hover > span.pointer {
+                border-left-color: rgba(79, 79, 79, 1);
+                border-bottom-color: rgba(79, 79, 79, 1);
+            }
+            .back {
+                position: relative;
+                padding-left: 11px;
+                margin-left: 8px;
+                padding-top: 2px;
+            }
+            .navbar-brand {
+                color: rgba(79, 79, 79, 1);
+            }
+            .displayNone {
+                display: none !important;
+            }
+            #home .page-header {
+                padding: 9px 4px;
+                margin: 41px 0 0px;
+                background: #474949;
+            }
+            #home .page-header p {
+                font-weight: bold;
+                color: white;
+                margin: 0;
+            }
+            #home .page-header p:first-child {
+                float: left;
+            }
+
+            #past-results .btn {
+                display:none;
+            }
+            #past-results tr.should-delete .btn {
+                display:block;
+            }
+            #past-results tr.should-delete span {
+                display:none;
+            }
+            /* scroll styles */
+            section {
+                overflow-y: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+            .wrap {
+                min-height: 100%;
+                padding-bottom: 1px;
+                -webkit-transform: translateZ(0);
+            }
+        </style>
+        <script type="text/javascript">
+            // Simple JavaScript Templating
+            // John Resig - http://ejohn.org/ - MIT Licensed
+            (function(){
+              var cache = {};
+
+              this.tmpl = function tmpl(str, data){
+                // Figure out if we're getting a template, or if we need to
+                // load the template - and be sure to cache the result.
+                var fn = !/\W/.test(str) ?
+                  cache[str] = cache[str] ||
+                    tmpl(document.getElementById(str).innerHTML) :
+
+                  // Generate a reusable function that will serve as a template
+                  // generator (and which will be cached).
+                  new Function("obj",
+                    "var p=[],print=function(){p.push.apply(p,arguments);};" +
+
+                    // Introduce the data as local variables using with(){}
+                    "with(obj){p.push('" +
+
+                    // Convert the template into pure JavaScript
+                    str
+                      .replace(/[\r\t\n]/g, " ")
+                      .split("<%").join("\t")
+                      .replace(/((^|%>)[^\t]*)'/g, "$1\r")
+                      .replace(/\t=(.*?)%>/g, "',$1,'")
+                      .split("\t").join("');")
+                      .split("%>").join("p.push('")
+                      .split("\r").join("\\'")
+                  + "');}return p.join('');");
+
+                // Provide some basic currying to the user
+                return data ? fn( data ) : fn;
+              };
+            })();
+
+        </script>
+    </head>
+    <body>
+        <div id="main-container">
+            <div class="navbar navbar-fixed-top">
+                <div class="container">
+                    <ul class="nav navbar-nav">
+                        <li id="back-home" class="back"><span class="pointer"></span><a href="#">Back</a></li>
+                    </ul>
+                    <span class="navbar-brand">Make Me Cash</span>
+                </div>
+            </div>
+            <section id="home">
+                <div class="wrap">
+                    <form class="form-inline">
+                        <div class="form-group">
+                            <table>
+                                <tr>
+                                    <td><input type="number" id="barcode" class="form-control input-large"  placeholder="Enter your barcode" /></td>
+                                    <td class="text-right"><button type="button" id="launch-scanner" class="btn btn-large btn-default"><span class="glyphicon glyphicon-barcode"></span></button></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </form>
+                    <button id="find-the-best-price" class="btn btn-large btn-success">Find the best price</button>
+                    <div id="searching" class="progress progress-striped active">
+                      <div class="progress-bar" style="width: 100%%">Getting prices...</div>
+                    </div>
+                    <div id="past-results">
+                        <script type="text/html" id="past_results_tmpl">
+                                <hr />
+                                <div class="page-header">
+                                    <p>Previous Results</p>
+                                    <p class="text-right">Total: <span>£<%= totalBestPrice %></span></p>
+                                </div>
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th width="50%">Item</th>
+                                            <th width="25%">Best Site</th>
+                                            <th width="50px" class="text-right">Best Price</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% for ( var item in pastResults ) { %>
+                                            <tr data-barcode="<%= pastResults[item].barcode %>">
+                                                <td>
+                                                    <%= pastResults[item].name %>
+                                                </td>
+                                                <td>
+                                                    <%= pastResults[item].prices[0].details.name %>
+                                                </td>
+                                                <td class="text-right">
+                                                    <span>£<%= pastResults[item].prices[0].price.toFixed(2) %></span>
+                                                    <button type="button" class="btn btn-mini btn-danger" style="float:right">Delete</button>
+                                                </td>
+                                            </tr>
+                                        <% } %>
+                                    </tbody>
+                                </table>
+                        </script>
+                    </div>
+                </div>
+            </section>
+            <section id="results" class="displayNone">
+                <div class="wrap">
+                    <div id="results-container">
+                        <script type="text/html" id="scan_tmpl">
+                            <div class="page-header">
+                                <h3 class="text-center"><%= name %></h3>
+                            </div>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Site Name</th>
+                                        <th class="text-right">Current Price</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% for ( var i = 0, len = prices.length; i < len;i++ ) { %>
+                                        <tr class="<%= (i === 0 ? 'warning' : '')%>">
+                                            <td>
+                                                <%= prices[i].details.name %>
+                                            </td>
+                                            <td class="text-right">£<%= prices[i].price.toFixed(2) %></td>
+                                        </tr>
+                                    <% } %>
+                                </tbody>
+                            </table>
+                        </script>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/bower_components/hammerjs/dist/hammer.min.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+            app.initialize();
+        </script>
+    </body>
+</html>
