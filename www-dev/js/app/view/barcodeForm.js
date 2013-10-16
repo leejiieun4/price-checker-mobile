@@ -34,6 +34,15 @@ require(["chui", "app/barcodescanner", "app/getBestPrice", "app/eventBus", "logg
             });
         });
 
+        document.addEventListener('deviceready', function() {
+            if (parseFloat(window.device.version) >= 7) {
+                $('body').addClass("isiOSseven");
+            }
+            setTimeout(function() {
+                window.navigator.splashscreen.hide();
+            }, 1);
+        }, false);
+
         logger.debug("Registered handlers on barcode form");
     }
 );

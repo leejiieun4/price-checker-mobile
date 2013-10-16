@@ -35,11 +35,13 @@
 		52A9FD28180347D200E1EFCE /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EBB9C429E9B4436BAF6A2D5 /* AVFoundation.framework */; };
 		52A9FD29180347E200E1EFCE /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B032CB81F17748B399CF2684 /* CoreVideo.framework */; };
 		52A9FD2A1803482300E1EFCE /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04FDDFDB44214A4A8530CFE4 /* SystemConfiguration.framework */; };
+		52E5184D180ECEE5001C0C40 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52E5184C180ECEE5001C0C40 /* CoreText.framework */; };
 		5AEE5B35173C68D80009041E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AEE5B34173C68D80009041E /* CoreLocation.framework */; };
 		5B1594DD16A7569C00FEF299 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */; };
 		6B4307B82E1744538D39A4FF /* zxing-all-in-one.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F05E7C69D1E54E87984208BF /* zxing-all-in-one.cpp */; };
 		72A587CEBA224570993CEC0D /* CDVReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC22CB2434A4872889FF19E /* CDVReachability.m */; };
 		9136B2DCBA444C5FB90FBBFD /* CDVDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 06A344D188A3432DA0D09AF4 /* CDVDevice.m */; };
+		B7FF6032C37D4F6A9D1E0716 /* CDVSplashScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = D53FAD927C85495CBF9E3ABC /* CDVSplashScreen.m */; };
 		B8FC650934EB40479E237595 /* CDVBarcodeScanner.mm in Sources */ = {isa = PBXBuildFile; fileRef = B2BAF2D0B9A842348FF1BCA9 /* CDVBarcodeScanner.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		C7142717CEA34E9EB348C345 /* CDVConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 153185FC393842A7BA6A3F81 /* CDVConnection.m */; };
 		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
@@ -103,6 +105,7 @@
 		52A9FD151803391B00E1EFCE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		52A9FD1B18033AF100E1EFCE /* CDVLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDVLogger.h; sourceTree = "<group>"; };
 		52A9FD1C18033AF100E1EFCE /* CDVLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDVLogger.m; sourceTree = "<group>"; };
+		52E5184C180ECEE5001C0C40 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		5AEE5B34173C68D80009041E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		5F9B89F6D87E4CEF98B52841 /* CDVConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVConnection.h; path = "org.apache.cordova.network-information/CDVConnection.h"; sourceTree = "<group>"; };
@@ -112,7 +115,9 @@
 		B032CB81F17748B399CF2684 /* CoreVideo.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		B2BAF2D0B9A842348FF1BCA9 /* CDVBarcodeScanner.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = unknown; name = CDVBarcodeScanner.mm; path = com.phonegap.plugins.barcodescanner/CDVBarcodeScanner.mm; sourceTree = "<group>"; };
 		BB68F5F1B522460A85FAADA4 /* libiconv.dylib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
+		D30B5B6256654EB49B42BF06 /* CDVSplashScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVSplashScreen.h; path = org.apache.cordova.splashscreen/CDVSplashScreen.h; sourceTree = "<group>"; };
 		D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x~iphone.png"; sourceTree = "<group>"; };
+		D53FAD927C85495CBF9E3ABC /* CDVSplashScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVSplashScreen.m; path = org.apache.cordova.splashscreen/CDVSplashScreen.m; sourceTree = "<group>"; };
 		F05E7C69D1E54E87984208BF /* zxing-all-in-one.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = unknown; name = "zxing-all-in-one.cpp"; path = "com.phonegap.plugins.barcodescanner/zxing-all-in-one.cpp"; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = PriceCheckerMobile/config.xml; sourceTree = "<group>"; };
 		FC9AE2FA0B7A4FA2A0F513CE /* zxing-all-in-one.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "zxing-all-in-one.h"; path = "com.phonegap.plugins.barcodescanner/zxing-all-in-one.h"; sourceTree = "<group>"; };
@@ -123,6 +128,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52E5184D180ECEE5001C0C40 /* CoreText.framework in Frameworks */,
 				52A9FD2A1803482300E1EFCE /* SystemConfiguration.framework in Frameworks */,
 				52A9FD29180347E200E1EFCE /* CoreVideo.framework in Frameworks */,
 				52A9FD28180347D200E1EFCE /* AVFoundation.framework in Frameworks */,
@@ -221,6 +227,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				52E5184C180ECEE5001C0C40 /* CoreText.framework */,
 				52A9FD151803391B00E1EFCE /* QuartzCore.framework */,
 				5AEE5B34173C68D80009041E /* CoreLocation.framework */,
 				5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */,
@@ -259,6 +266,8 @@
 				4CC22CB2434A4872889FF19E /* CDVReachability.m */,
 				5F9B89F6D87E4CEF98B52841 /* CDVConnection.h */,
 				124697D3E8E24BE7963DC9FF /* CDVReachability.h */,
+				D53FAD927C85495CBF9E3ABC /* CDVSplashScreen.m */,
+				D30B5B6256654EB49B42BF06 /* CDVSplashScreen.h */,
 			);
 			name = Plugins;
 			path = PriceCheckerMobile/Plugins;
@@ -467,6 +476,7 @@
 				9136B2DCBA444C5FB90FBBFD /* CDVDevice.m in Sources */,
 				C7142717CEA34E9EB348C345 /* CDVConnection.m in Sources */,
 				72A587CEBA224570993CEC0D /* CDVReachability.m in Sources */,
+				B7FF6032C37D4F6A9D1E0716 /* CDVSplashScreen.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -545,7 +555,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = PriceCheckerMobile;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -576,7 +586,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = PriceCheckerMobile;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

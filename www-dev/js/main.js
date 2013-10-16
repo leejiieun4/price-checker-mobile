@@ -26,12 +26,12 @@ function onDeviceReady() {
     try {
         if (parseFloat(window.device.version) === 7.0) {
             try {
-            document.body.classList.add("isIOS7")
+            document.body.classList.add("isiOSseven")
             } catch (e) {}
         }
     } catch (e) {}
     document.documentElement.classList.remove('loading');
-
+    alert(window.device.version);
     require([
         'chui',
         'js/priceCheckerApp.js'

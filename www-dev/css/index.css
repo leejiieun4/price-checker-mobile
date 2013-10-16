@@ -324,16 +324,16 @@ section li {
     display:none;
 }
 
-.isIOS7 nav {
+.isiOSseven nav {
     padding-top: 15px !important;
     height: 60px;
 }
 
-.isIOS7 nav h1, .isIOS7 nav div a {
+.isiOSseven nav h1, .isiOSseven nav div a {
     top: 15px;
 }
 
-.isIOS7 article {
+.isiOSseven article {
     top: 60px;
 }
 

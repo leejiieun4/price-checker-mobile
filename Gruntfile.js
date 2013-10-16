@@ -23,6 +23,18 @@ module.exports = function(grunt) {
           },
         ]
       },
+      ios7icons: {
+        files: [
+            {
+                src: [
+                    "*"
+                ],
+                dest: "platforms/ios/PriceCheckerMobile/Resources/icons",
+                cwd: "assets/ios7",
+                expand: true
+            }
+        ]
+      },
       options: {
         processContentExclude: ["**/*.{gif,jpg,png}"],
         processContent: function (content, filePath) {
@@ -70,7 +82,50 @@ module.exports = function(grunt) {
         dest: 'www',
         ext: '.min.css'
       }
-    }
+    },
+
+    cordovacli: {
+        options: {
+            path: '.'
+        },
+        prepareios: {
+            options: {
+                command: 'prepare',
+                platforms: ['ios']
+            }
+        }
+    },
+
+    autoshot: {
+        ios7: {
+          options: {
+            path: 'platforms/ios/PriceCheckerMobile/Resources/splash',
+            local: {
+              path: 'www-dev',
+              port: 26380,
+              files: [
+                { src: 'ios7-splashscreen.html', dest: 'Default~iphone.png' }
+              ]
+            },
+            viewport: ['320x480', '640x960', '640x1136']
+          }
+        }
+      },
+
+      rename: {
+        iphonesplash: {
+          src: 'platforms/ios/PriceCheckerMobile/Resources/splash/local-320x480-Default~iphone.png',
+          dest: 'platforms/ios/PriceCheckerMobile/Resources/splash/Default~iphone.png'
+        },
+        iphonex2splash: {
+          src: 'platforms/ios/PriceCheckerMobile/Resources/splash/local-640x960-Default~iphone.png',
+          dest: 'platforms/ios/PriceCheckerMobile/Resources/splash/Default@2x~iphone.png'
+        },
+        iphone5splash: {
+          src: 'platforms/ios/PriceCheckerMobile/Resources/splash/local-640x1136-Default~iphone.png',
+          dest: 'platforms/ios/PriceCheckerMobile/Resources/splash/Default-568h@2x~iphone.png'
+        }
+      }
   });
 
   // Load the plugin that provides the "uglify" task.
@@ -78,9 +133,12 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-requirejs');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-cordovacli');
+  grunt.loadNpmTasks('grunt-autoshot');
+  grunt.loadNpmTasks('grunt-rename');
 
-
+  grunt.registerTask('splash', ['autoshot:ios7', 'rename:iphonesplash', 'rename:iphonex2splash', 'rename:iphone5splash']);
   // Default task(s).
-  grunt.registerTask('default', ['clean', 'requirejs', 'cssmin:combine', 'cssmin:minify', 'copy']);
+  grunt.registerTask('default', ['clean', 'requirejs', 'cssmin:combine', 'cssmin:minify', 'copy:main', 'copy:ios7icons', 'cordovacli:prepareios', 'splash']);
 
 };
