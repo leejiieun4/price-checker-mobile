@@ -34,7 +34,10 @@ define(["app/dataStore", "app/eventBus"], function(dataStore, eventBus) {
         getAllResults: function() {
             return dataStore.getPastResults();
         },
-        getVendors: getVendors
+        getVendors: getVendors,
+        deleteItem: function(barcode) {
+            dataStore.deletePastResult(barcode);
+        }
     };
 
     return priceManager;

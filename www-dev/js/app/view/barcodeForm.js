@@ -27,8 +27,8 @@ require(["chui", "app/barcodescanner", "app/getBestPrice", "app/eventBus", "logg
             var barcode = getCurrentBarcode();
             bus.publish("searchingForBarcode", {barcode: barcode});
             getBestPrice(barcode).then(function(result) {
+                setBarcode("&nbsp;");
                 bus.publish("barcodeResult", result);
-                setBarcode("");
             }, function(error) {
                 alert('Could not find a match for the barcode')
             });

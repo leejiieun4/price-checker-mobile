@@ -12,7 +12,7 @@ define(['rsvp'], function(rsvp) {
                             if (xhr.status === 0 && /MacIntel/.test(navigator.platform)) {
                                 setTimeout(function() {
                                     resolve({"barcode":"8717418136772","prices":{"Music Magpie":{"price":0.21,"details":{"name":"Music Magpie","url":"http://www.musicmagpie.co.uk"},"title":"HighSchool Musical - Remix Edition [DVD"},"WeBuyDVDs":{"price":0.36,"details":{"name":"WeBuyDVDs","url":"http://www.webuydvds.co.uk/"},"title":"HighSchool Musical - Remix Edition [DVD]"},"Zumu":{"price":0.55,"details":{"name":"Zumu","url":"http://www.zumu.co.uk/"},"title":"High School Musical (Remix)"}},"name":"HighSchool Musical - Remix Edition [DVD","success":true});
-                                }, 5000000);
+                                }, 1000);
                             } else {
                                 reject(xhr.status+" ("+xhr.statusText+")");
                             }

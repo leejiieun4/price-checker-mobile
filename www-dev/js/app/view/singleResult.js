@@ -6,6 +6,7 @@ define(['chui', "app/eventBus", "text!app/view/tmpl/singleResult.tmpl", "text!ap
     function showResult(key, result) {
         $('#results').html(singleResultTmpl(result));
         $.UIGoToArticle('#results');
+        $.UINavigationHistory.push('#results');
     }
 
     bus.subscribe('barcodeResult', showResult);

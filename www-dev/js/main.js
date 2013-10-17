@@ -22,23 +22,11 @@ require.config({
     }
 });
 
-function onDeviceReady() {
-    try {
-        if (parseFloat(window.device.version) === 7.0) {
-            try {
-            document.body.classList.add("isiOSseven")
-            } catch (e) {}
-        }
-    } catch (e) {}
-    document.documentElement.classList.remove('loading');
-    alert(window.device.version);
-    require([
-        'chui',
-        'js/priceCheckerApp.js'
-    ]);
-}
-
-document.addEventListener('deviceready', onDeviceReady, false);
+require([
+    'chui',
+    'js/app/UIPagingPatch.js',
+    'js/priceCheckerApp.js'
+]);
 
 if (!window.cordova) {
     setTimeout(onDeviceReady, 1000);

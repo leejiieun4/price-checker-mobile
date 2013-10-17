@@ -1,4 +1,4 @@
-define(['chui', 'app/eventBus'], function($, eventBus) {
+define(['chui', 'app/eventBus', "app/priceResultManager"], function($, eventBus, priceManager) {
     var opts = {
          tabs : 3,
          icons: ['search', 'best-price', 'by-vendor'],
@@ -8,8 +8,10 @@ define(['chui', 'app/eventBus'], function($, eventBus) {
     $.UITabbar(opts);
 
     function updateBestPriceTab(key, priceManager) {
-        $(".tabbar .best-price label").text("Best Price £" + priceManager.getTotalBestPrice().toFixed(2));
+        $(".tabbar .best-price label").html("Best Price<br/>£" + priceManager.getTotalBestPrice().toFixed(2));
     }
 
     eventBus.subscribe("priceResultRepoChange", updateBestPriceTab);
+
+    updateBestPriceTab('priceResultRepoChange', priceManager);
 })

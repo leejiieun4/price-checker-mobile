@@ -11,12 +11,13 @@ define(['chui', "app/eventBus", "app/priceResultManager",
                 vendors: priceManager.getVendors()
             };
             $('#byvendor').html(tmpl(result));
-            //$('#byvendor section').addClass('current');
-            $.UIPaging();
-
+            $('#byvendor > section:first-child').removeClass('next').addClass('current');
         }
 
         bus.subscribe('priceResultRepoChange', updateDomForAllVendors);
         updateDomForAllVendors();
+
+        $.UIPaging();
+
     }
 );

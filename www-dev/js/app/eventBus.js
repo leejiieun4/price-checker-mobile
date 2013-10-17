@@ -32,7 +32,7 @@ define(["logger"], function(logger) {
                 try {
                     handlers[i](event, data);
                 } catch (e) {
-                    logger(e);
+                    logger.log(e);
                 }
             }
         }

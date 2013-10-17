@@ -485,3 +485,15 @@ section li {
 margin: 18px 18px;
 padding: 0;
 }
+
+.deletable li.comp:last-of-type > aside {
+    border: none;
+}
+.deletable li.comp > aside {
+    padding: 0 10px 10px 10px;
+    border-bottom: solid 1px #c8c8c8;
+}
+
+.deletable li.comp > div {
+    margin-left: 15px;
+}

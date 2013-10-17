@@ -4,7 +4,7 @@
         [[ for (var item in data.results) {
                 if (data.results.hasOwnProperty(item) && data.results[item].bestVendors.length >= 1) {
                     var bestVendor = data.results[item].bestVendors[0]; ]]
-        <li class="comp" data-goto="results">
+        <li class="comp" data-barcode="[[= item]]">
             <div>
                 <h3>[[= data.results[item].prices[bestVendor].title]]</h3>
                 <h4>[[= bestVendor]]</h4>

@@ -1,7 +1,7 @@
 [[ for (var vendor in data.vendors) {
         if (data.vendors.hasOwnProperty(vendor)) {
         ]]
-    <section>
+    <section class="next">
         <h3>[[= vendor]]: <span>£[[= data.vendors[vendor].totalPrice.toFixed(2)]]</span></h3>
         <ul class='list' >
             [[ for (var item in data.results) {

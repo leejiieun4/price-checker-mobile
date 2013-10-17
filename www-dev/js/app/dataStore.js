@@ -61,29 +61,41 @@ define([], function() {
     function addBestPricedVendor(result) {
         var best = 0,
             bestVendors = [];
-        for (var vendor in result.prices) {
-            var vendorPrice = result.prices[vendor].price;
-            if (best < vendorPrice) {
-                best = vendorPrice;
-                bestVendors = [vendor];
-            } else if (best === vendorPrice) {
-                bestVendors.push(vendor);
+        if (result) {
+            for (var vendor in result.prices) {
+                var vendorPrice = result.prices[vendor].price;
+                if (best < vendorPrice) {
+                    best = vendorPrice;
+                    bestVendors = [vendor];
+                } else if (best === vendorPrice) {
+                    bestVendors.push(vendor);
+                }
             }
+            result.bestVendors = bestVendors;
         }
-        result.bestVendors = bestVendors
         return result;
     }
 
     function updateVendors(result) {
         var vendors = getVendors(),
             pastResults = getPastResults(key);
-        for (var vendor in result.prices) {
-            vendors[vendor] = result.prices[vendor].details;
-            var total = 0;
-            for (var oldResult in pastResults){
-                total += pastResults[oldResult].prices[vendor].price;
+        if (result) {
+            for (var vendor in result.prices) {
+                vendors[vendor] = result.prices[vendor].details;
+                var total = 0;
+                for (var oldResult in pastResults){
+                    total += pastResults[oldResult].prices[vendor].price;
+                }
+                vendors[vendor].totalPrice = total;
             }
-            vendors[vendor].totalPrice = total;
+        } else {
+            for (var vendor in vendors) {
+                var total = 0;
+                for (var oldResult in pastResults){
+                    total += pastResults[oldResult].prices[vendor].price;
+                }
+                vendors[vendor].totalPrice = total;
+            }
         }
         localStorage.setItem('vendors', json.stringify(vendors));
     }
