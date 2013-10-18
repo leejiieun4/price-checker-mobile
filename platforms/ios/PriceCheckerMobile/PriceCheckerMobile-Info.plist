@@ -16,6 +16,10 @@
       <dict>
         <key>CFBundleIconFiles</key>
         <array>
+          <string>Icon-40</string>
+          <string>Icon-Small</string>
+          <string>Icon</string>
+          <string>Icon-60</string>
           <string>icon.png</string>
           <string>icon@2x.png</string>
           <string>icon-72.png</string>
@@ -26,13 +30,15 @@
       </dict>
     </dict>
     <key>CFBundleIdentifier</key>
-    <string>uk.co.mattgoldspink.pricechecker</string>
+    <string>uk.co.mattgoldspink.makemecash</string>
     <key>CFBundleInfoDictionaryVersion</key>
     <string>6.0</string>
     <key>CFBundleName</key>
     <string>${PRODUCT_NAME}</string>
     <key>CFBundlePackageType</key>
     <string>APPL</string>
+    <key>CFBundleShortVersionString</key>
+    <string>1.0.0</string>
     <key>CFBundleSignature</key>
     <string>????</string>
     <key>CFBundleVersion</key>

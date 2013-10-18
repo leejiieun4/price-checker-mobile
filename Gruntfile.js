@@ -31,6 +31,14 @@ module.exports = function(grunt) {
                     "*"
                 ],
                 dest: "platforms/ios/PriceCheckerMobile/Resources/icons",
+                cwd: "assets/ios",
+                expand: true
+            },
+            {
+                src: [
+                    "*"
+                ],
+                dest: "platforms/ios/PriceCheckerMobile/Resources/icons",
                 cwd: "assets/ios7",
                 expand: true
             }

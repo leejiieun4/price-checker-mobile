@@ -35,7 +35,7 @@ define(['rsvp'], function(rsvp) {
                         }
                     }
                 }
-                xhr.open("GET", "http://price-app-checker.herokuapp.com/?barcode=" + barcode, true);
+                xhr.open("GET", "http://price-app-checker-eu.herokuapp.com/?barcode=" + barcode, true);
                 xhr.send();
             } else {
                 reject('Invalid barcode');
