@@ -1,4 +1,4 @@
-define([], function() {
+define(['rsvp'], function(rsvp) {
 
     var key = 'pastResults',
         json = JSON,
@@ -6,11 +6,18 @@ define([], function() {
         currentVersion = 1;
 
     function validateDataInStore() {
-        var version = json.parse(localStorage.getItem('version'));
-        if (version !== currentVersion) {
-            localStorage.clear();
-        }
-        localStorage.setItem('version', json.stringify(currentVersion));
+        return new rsvp.Promise(function(resolve, reject) {
+            var version = json.parse(localStorage.getItem('version'));
+            if (version !== currentVersion) {
+                localStorage.clear();
+            }
+            localStorage.setItem('version', json.stringify(currentVersion));
+            updateVendors().then(function(data) {
+                resolve(data)
+            }, function(err) {
+                reject(err);
+            });
+        });
     }
 
     function cleanse(results) {
@@ -49,13 +56,18 @@ define([], function() {
     }
 
     function doUpdate(barcode, result) {
-        var pastResults = getPastResults(key);
-        pastResults[barcode] = addBestPricedVendor(result);
-        localStorage.setItem(key, json.stringify(pastResults));
-        updateVendors(result);
-        for (var i = 0, len = listeners.length; i < len; i++) {
-            listeners[i](barcode, result);
-        }
+        return new rsvp.Promise(function(resolve, reject) {
+            var pastResults = getPastResults(key);
+            pastResults[barcode] = addBestPricedVendor(result);
+            localStorage.setItem(key, json.stringify(pastResults));
+            var promise = updateVendors(result);
+            for (var i = 0, len = listeners.length; i < len; i++) {
+                listeners[i](barcode, result);
+            }
+            promise.then(function() {
+                resolve(result);
+            })
+        });
     }
 
     function addBestPricedVendor(result) {
@@ -76,39 +88,34 @@ define([], function() {
         return result;
     }
 
-    function updateVendors(result) {
-        var vendors = getVendors(),
-            pastResults = getPastResults(key);
-        if (result) {
-            for (var vendor in result.prices) {
-                vendors[vendor] = result.prices[vendor].details;
-                var total = 0;
-                for (var oldResult in pastResults){
-                    total += pastResults[oldResult].prices[vendor].price;
+    function updateVendors() {
+        return new rsvp.Promise(function(resolve, reject) {
+            var vendors = {},
+                pastResults = getPastResults(key);
+            for (var oldResult in pastResults){
+                for (var vendor in pastResults[oldResult].prices) {
+                    if (!vendors[vendor]) {
+                        vendors[vendor] = {
+                            name: pastResults[oldResult].prices[vendor].details.name,
+                            url: pastResults[oldResult].prices[vendor].details.url,
+                            totalPrice: 0
+                        };
+                    }
+                    vendors[vendor].totalPrice += pastResults[oldResult].prices[vendor].price;
                 }
-                vendors[vendor].totalPrice = total;
             }
-        } else {
-            for (var vendor in vendors) {
-                var total = 0;
-                for (var oldResult in pastResults){
-                    total += pastResults[oldResult].prices[vendor].price;
-                }
-                vendors[vendor].totalPrice = total;
-            }
-        }
-        localStorage.setItem('vendors', json.stringify(vendors));
+            localStorage.setItem('vendors', json.stringify(vendors));
+            resolve(vendors);
+        });
     }
 
     function getVendors() {
         return getPastResults('vendors');
     }
 
-    validateDataInStore();
-
     return {
         saveResultToDisk: function(result) {
-            doUpdate(result.barcode, result);
+            return doUpdate(result.barcode, result);
         },
 
         deletePastResult: function(barcode) {
@@ -125,7 +132,9 @@ define([], function() {
 
         addUpdateListener: function(listener) {
             listeners.push(listener);
-        }
+        },
+
+        init: validateDataInStore
 
     };
 });

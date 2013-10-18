@@ -6,7 +6,7 @@
                     var bestVendor = data.results[item].bestVendors[0]; ]]
         <li class="comp" data-barcode="[[= item]]">
             <div>
-                <h3>[[= data.results[item].prices[bestVendor].title]]</h3>
+                <h3>[[= data.results[item].prices[bestVendor].title || data.results[item].name]]</h3>
                 <h4>[[= bestVendor]]</h4>
             </div>
             <aside>

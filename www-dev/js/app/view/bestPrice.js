@@ -37,7 +37,9 @@ define(
         }
 
         function handleSingleTap(event) {
-            if (!$(arguments[0].target).hasClass('deletion-indicator')) {
+            if ($(arguments[0].target).hasClass('deletion-indicator').length === 0 &&
+                $(arguments[0].target).hasClass('delete').length === 0
+                ) {
                 var tappedLi = $(arguments[0].target).ancestor('li');
                 var barcode = tappedLi.dataset('barcode');
 

@@ -15,9 +15,7 @@ define(['chui', "app/eventBus", "app/priceResultManager",
         }
 
         bus.subscribe('priceResultRepoChange', updateDomForAllVendors);
-        updateDomForAllVendors();
 
         $.UIPaging();
-
     }
 );

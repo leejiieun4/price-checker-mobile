@@ -9,6 +9,10 @@ require(["chui", "app/barcodescanner", "app/getBestPrice", "app/eventBus", "logg
             $('#barcode').val(barcode);
         }
 
+        function hideKeyboard() {
+            document.activeElement.blur();
+        }
+
         logger.debug("Register handlers on barcode form");
 
         var launchScanner = $('#launch-scanner');
@@ -23,6 +27,7 @@ require(["chui", "app/barcodescanner", "app/getBestPrice", "app/eventBus", "logg
 
         var findBestPriceBtn = $('#find-the-best-price');
         findBestPriceBtn.on('singletap', function(event) {
+            hideKeyboard();
             logger.debug("find best price tapped");
             var barcode = getCurrentBarcode();
             bus.publish("searchingForBarcode", {barcode: barcode});

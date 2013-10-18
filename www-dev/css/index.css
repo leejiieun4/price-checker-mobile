@@ -305,13 +305,12 @@ article > section {
     background: #77cc33;
 }
 
-a.button.back, a.button.backTo {
+a.button.back, a.button.backTo,  {
     color: #FFF;
     margin-top: 9px;
 }
 
 a.button.back::before, a.button.backTo::before {
-    margin-top: 3px;
     color: #FFF;
     background-color: #FFF;
 }
@@ -331,6 +330,14 @@ section li {
 
 .isiOSseven nav h1, .isiOSseven nav div a {
     top: 15px;
+}
+
+.isiOSseven nav>h1+a.button {
+    top: 20px;
+}
+
+.isiOSseven nav a {
+    top: 3px;
 }
 
 .isiOSseven article {
@@ -482,8 +489,8 @@ section li {
 }
 
 #search .p ul {
-margin: 18px 18px;
-padding: 0;
+    margin: 18px 18px;
+    padding: 0;
 }
 
 .deletable li.comp:last-of-type > aside {
@@ -496,4 +503,13 @@ padding: 0;
 
 .deletable li.comp > div {
     margin-left: 15px;
+}
+
+.segmented.paging > .button::before {
+    background-color: #FFF;
+}
+
+a.button, a.button.back::before, a.button.back, a.button.backTo {
+    color: #FFF;
+    border-color: #FFF;
 }

@@ -1,0 +1,15 @@
+{
+  "name": "price-checker-mobile",
+  "version": "0.0.0",
+  "main": "www-dev/js/main.js",
+  "ignore": [
+    ".jshintrc"
+  ],
+  "dependencies": {
+    "almond": "~0.2.6",
+    "chocolatechip-ui": "~3.04",
+    "requirejs": "~2.1.8",
+    "requirejs-text": "~2.0.10",
+    "rsvp": "~2.0.1"
+  }
+}

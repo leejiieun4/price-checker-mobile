@@ -9,7 +9,7 @@
                     ]]
             <li class="comp">
                 <div>
-                    <h3>[[= data.results[item].prices[vendor].title]]</h3>
+                    <h3>[[= data.results[item].prices[vendor].title || data.results[item].name]]</h3>
                 </div>
                 <aside>
                     <h4>£[[= data.results[item].prices[vendor].price.toFixed(2)]]</h4>

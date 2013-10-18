@@ -1,11 +1,14 @@
 define(["app/dataStore", "app/eventBus"], function(dataStore, eventBus) {
 
+    function publishRepoChange() {
+        eventBus.publish("priceResultRepoChange", priceManager);
+    }
+
     function addResult(key, result) {
         try {
             result.name = result.WeBuyDVDs.title;
         } catch (e) {}
-        dataStore.saveResultToDisk(result);
-        eventBus.publish("priceResultRepoChange", priceManager);
+        dataStore.saveResultToDisk(result).then(publishRepoChange);
     }
 
     function getTotalBestPrice() {
@@ -39,6 +42,8 @@ define(["app/dataStore", "app/eventBus"], function(dataStore, eventBus) {
             dataStore.deletePastResult(barcode);
         }
     };
+
+    dataStore.init().then(publishRepoChange);
 
     return priceManager;
 
