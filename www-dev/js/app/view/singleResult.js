@@ -16,6 +16,7 @@ define(['chui', "app/eventBus", "text!app/view/tmpl/singleResult.tmpl", "text!ap
     function showSearchScreen(key, result) {
         $('#searching').html(searchingTmpl(result));
         $.UIGoToArticle('#searching');
+        $.UINavigationHistory.push('#searching');
     }
 
     bus.subscribe('searchingForBarcode', showSearchScreen)

@@ -1,5 +1,5 @@
-require(["chui", "app/barcodescanner", "app/getBestPrice", "app/eventBus", "logger"],
-    function($, showScanner, getBestPrice, bus, logger) {
+require(["chui", "app/barcodescanner", "app/getBestPrice", "app/eventBus", "logger", "app/view/alertDialog"],
+    function($, showScanner, getBestPrice, bus, logger, alert) {
 
         function getCurrentBarcode() {
             return $('#barcode').val();
@@ -32,10 +32,12 @@ require(["chui", "app/barcodescanner", "app/getBestPrice", "app/eventBus", "logg
             var barcode = getCurrentBarcode();
             bus.publish("searchingForBarcode", {barcode: barcode});
             getBestPrice(barcode).then(function(result) {
+                $.UINavigationHistory.pop();
                 setBarcode("&nbsp;");
                 bus.publish("barcodeResult", result);
             }, function(error) {
-                alert('Could not find a match for the barcode')
+                var result = alert('Could not find a match for the barcode');
+                $.UIGoBack();
             });
         });
 

@@ -12,20 +12,20 @@ define(['rsvp'], function(rsvp) {
                             if (xhr.status === 0 && /MacIntel/.test(navigator.platform)) {
                                 setTimeout(function() {
                                     resolve({
-  "barcode": "8717418136771",
-  "prices": {
-    "WeBuyDVDs": {
-      "price": 0.25,
-      "details": {
-        "name": "WeBuyDVDs",
-        "url": "http://www.webuydvds.co.uk/"
-      },
-      "title": ""
-    }
-  },
-  "name": "New DVD",
-  "success": true
-});
+                                      "barcode": "8717418136771",
+                                      "prices": {
+                                        "WeBuyDVDs": {
+                                          "price": 0.25,
+                                          "details": {
+                                            "name": "WeBuyDVDs",
+                                            "url": "http://www.webuydvds.co.uk/"
+                                          },
+                                          "title": ""
+                                        }
+                                      },
+                                      "name": "New DVD",
+                                      "success": true
+                                    });
                                 }, 1000);
                             } else {
                                 reject(xhr.status+" ("+xhr.statusText+")");
