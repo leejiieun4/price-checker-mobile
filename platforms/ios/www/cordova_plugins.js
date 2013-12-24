@@ -49,6 +49,11 @@ module.exports = [
         "clobbers": [
             "navigator.splashscreen"
         ]
+    },
+    {
+        "file": "plugins/emailcomposer/EmailComposer.js",
+        "id": "emailcomposer.EmailComposer",
+        "runs": true
     }
 ]
 });

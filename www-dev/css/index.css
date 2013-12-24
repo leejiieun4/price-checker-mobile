@@ -335,6 +335,13 @@ section li {
 .isiOSseven nav>h1+a.button {
     top: 20px;
 }
+nav > h1 + a.button.icon {
+    top: 8px;
+    font-size: 140%;
+}
+.isiOSseven nav>h1+a.button.icon {
+    top: 24px;
+}
 
 .isiOSseven nav a {
     top: 3px;
@@ -386,6 +393,10 @@ section li {
     width: 80%;
 }
 
+.cell:nth-child(4) img {
+    width: 45%;
+}
+
 @-webkit-keyframes rotateItem1 {
     from {
         -webkit-transform: rotate(-5deg) translateY(100px) rotate(5deg);
@@ -400,14 +411,13 @@ section li {
     -webkit-animation: rotateItem1 4s linear infinite;
 }
 
-
 @-webkit-keyframes rotateItem2 {
     from {
-        -webkit-transform: rotate(120deg) translateY(100px) rotate(-120deg);
+        -webkit-transform: rotate(90deg) translateY(100px) rotate(-90deg);
     }
 
     to {
-        -webkit-transform: rotate(480deg) translateY(100px) rotate(-480deg);
+        -webkit-transform: rotate(450deg) translateY(100px) rotate(-450deg);
     }
 }
 
@@ -417,15 +427,28 @@ section li {
 
 @-webkit-keyframes rotateItem3 {
     from {
-        -webkit-transform: rotate(240deg) translateY(100px) rotate(-240deg);
+        -webkit-transform: rotate(180deg) translateY(100px) rotate(-180deg);
     }
 
     to {
-        -webkit-transform: rotate(600deg) translateY(100px) rotate(-600deg);
+        -webkit-transform: rotate(540deg) translateY(100px) rotate(-540deg);
     }
 }
 .carousel .cell:nth-child(3) {
     -webkit-animation: rotateItem3 4s linear infinite;
+}
+
+@-webkit-keyframes rotateItem4 {
+    from {
+        -webkit-transform: rotate(270deg) translateY(100px) rotate(-270deg);
+    }
+
+    to {
+        -webkit-transform: rotate(630deg) translateY(100px) rotate(-630deg);
+    }
+}
+.carousel .cell:nth-child(4) {
+    -webkit-animation: rotateItem4 4s linear infinite;
 }
 
 .glyphicon-search {
@@ -512,4 +535,8 @@ section li {
 a.button, a.button.back::before, a.button.back, a.button.backTo {
     color: #FFF;
     border-color: #FFF;
+}
+
+.popup>.panel .button {
+    color: #000;
 }

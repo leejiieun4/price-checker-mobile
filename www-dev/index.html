@@ -10,15 +10,13 @@
         <link type="text/css" href="js/bower_components/chocolatechip-ui/chui/chui.ios-3.0.4.min.css" rel="stylesheet"></link>
         <link type="text/css" href="css/index.css" rel="stylesheet"></link>
         <script>
-            window.onerror = function(a,b,c) {
+            window.onerror = function(message, url, lineNumber) {
                 if (window.cordova) {
-                    console.log(a + ", " + b + ", " + c);
+                    console.log(message + ", " + url + ", " + lineNumber);
                     console.log(localStorage.getItem('pastResults'));
                     console.log(localStorage.getItem('vendors'));
                 } else {
-                    console.error(a);
-                    console.error(b);
-                    console.error(c);
+                    console.error(message + " - " + url + "(" + lineNumber + ")");
                 }
             }
         </script>
@@ -29,6 +27,7 @@
         -->
         <nav class='current'>
             <h1>Make Me Cash</h1>
+            <a class='button icon' href='javascript:void(null)' title='Feedback' id="feedback"><span class="glyphicon glyphicon-question-sign"></span></a>
         </nav>
         <article id='search' class='current'>
             <section>
@@ -47,6 +46,9 @@
                         <li><a href="http://musicmagpie.co.uk"><img src="img/logos/musicmagpie.gif"/></a>
                         <li><a href="http://zumu.co.uk"><img src="img/logos/zumu.png"/></a>
                         <li><a href="http://zapper.co.uk"><img src="img/logos/zapper.png"/></a>
+                        <li><a href="https://uk.webuy.com"><img height="60" src="img/logos/cex.png"/></a>
+                        <li><a href="http://www.webuydvds.co.uk">webuydvds.co.uk</a>
+
                     </ul>
                     <b>Note:</b> Make Me Cash app is not affiliated with any of these sites
                 </div>

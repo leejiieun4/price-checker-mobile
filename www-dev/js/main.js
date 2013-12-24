@@ -5,7 +5,8 @@ require.config({
         logger: 'app/logger',
         chocolatechip: 'bower_components/chocolatechip-ui/chui/chocolatechip-3.0.4',
         chui: 'bower_components/chocolatechip-ui/chui/chui-3.0.4',
-        text: 'bower_components/requirejs-text/text'
+        text: 'bower_components/requirejs-text/text',
+        fastclick: 'bower_components/fastclick/lib/fastclick'
     },
     shim: {
         'chocolatechip' : {
@@ -22,7 +23,3 @@ require([
     'chui',
     'js/priceCheckerApp.js'
 ]);
-
-if (!window.cordova) {
-    setTimeout(onDeviceReady, 1000);
-}
