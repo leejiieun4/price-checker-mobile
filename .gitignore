@@ -18,3 +18,5 @@ build
 www
 www-dev/js/optimized.js
 www-dev/js/bower_components
+
+platforms/ios/PriceCheckerMobile.xcodeproj/xcuserdata/matt_goldspink.xcuserdatad/xcdebugger
