@@ -18,11 +18,10 @@ require(["chui", "app/barcodescanner", "app/getBestPrice", "app/eventBus", "logg
 
         function registerHandlers() {
 
-            logger.debug("Register handlers on barcode form");
-
             launchScanner.on('click', function(event) {
-                logger.debug("launch scanner tapped");
+                analytics.trackEvent('Scanner', 'Launched');
                 showScanner().then(function(barcode) {
+                    analytics.trackEvent('Scanner', 'Closed', barcode);
                     setBarcode(barcode);
                 }, function(error) {
                     alert('An error occured whilst using the barcode scanner' + error)
@@ -31,14 +30,16 @@ require(["chui", "app/barcodescanner", "app/getBestPrice", "app/eventBus", "logg
 
             findBestPriceBtn.on('click', function(event) {
                 hideKeyboard();
-                logger.debug("find best price tapped");
                 var barcode = getCurrentBarcode();
                 bus.publish("searchingForBarcode", {barcode: barcode});
+                analytics.trackEvent('getBestPrice', 'Launched', barcode);
                 getBestPrice(barcode).then(function(result) {
+                    analytics.trackEvent('getBestPrice', 'Result', barcode);
                     $.UINavigationHistory.pop();
                     setBarcode("&nbsp;");
                     bus.publish("barcodeResult", result);
                 }, function(error) {
+                    analytics.trackEvent('getBestPrice', 'NoResult', barcode);
                     var result = alert('Could not find a match for the barcode');
                     $.UIGoBack();
                 });
@@ -46,20 +47,25 @@ require(["chui", "app/barcodescanner", "app/getBestPrice", "app/eventBus", "logg
 
             feedbackBtn.on('click', function(event) {
                 hideKeyboard();
-                logger.debug("Give feedback");
+                analytics.trackEvent('feedback', 'Launch');
                 feedback().then(function() {
-
+                    analytics.trackEvent('feedback', 'Sent');
                 }, function() {
-
+                    analytics.trackEvent('feedback', 'Cancelled');
                 });
             });
-            logger.debug("Registered handlers on barcode form");
-
         }
 
         function onDeviceReady() {
             fastclick.attach(document.body);
             registerHandlers();
+            if (analytics) {
+                analytics.startTrackerWithId('UA-43287931-3');
+                analytics.trackView('App Launch');
+            } else {
+                var emptyFn = function(){};
+                window.analytics = {trackView: emptyFn, trackEvent: emptyFn};
+            }
             if (parseFloat(window.device.version) >= 7) {
                 $('body').addClass("isiOSseven");
             }

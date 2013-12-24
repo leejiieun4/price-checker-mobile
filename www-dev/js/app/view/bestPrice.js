@@ -10,7 +10,9 @@ define(
 
         function handleItemDelete(item) {
             var item = $(item).parent('li');
-            priceManager.deleteItem(item.dataset('barcode'));
+            var barcode = item.dataset('barcode');
+            analytics.trackEvent('bestPrice', 'Delete', barcode);
+            priceManager.deleteItem(barcode);
 
             var newBestPrice = priceManager.getTotalBestPrice();
             var sectionHeader = $('#bestprice section > h3');
@@ -44,6 +46,7 @@ define(
                 var barcode = tappedLi.dataset('barcode');
 
                 if (barcode) {
+                    analytics.trackEvent('bestPrice', 'Show', barcode);
                     var data = priceManager.getAllResults()[barcode];
                     bus.publish('barcodeResult', data);
                 }

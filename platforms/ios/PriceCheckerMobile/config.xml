@@ -30,6 +30,9 @@
     <feature name="EmailComposer">
         <param name="ios-package" value="EmailComposer" />
     </feature>
+    <feature name="UniversalAnalytics">
+        <param name="ios-package" value="UniversalAnalyticsPlugin" />
+    </feature>
     <access origin="http://price-app-checker-eu.herokuapp.com" />
     <preference name="KeyboardDisplayRequiresUserAction" value="true" />
     <preference name="SuppressesIncrementalRendering" value="false" />

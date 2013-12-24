@@ -7,6 +7,7 @@ define(['chui', "app/eventBus", "text!app/view/tmpl/singleResult.tmpl", "text!ap
         $('#results').html(singleResultTmpl(result));
         $.UIGoToArticle('#results');
         $.UINavigationHistory.push('#results');
+        analytics.trackEvent('singleResult', 'Show', result.barcode);
     }
 
     bus.subscribe('barcodeResult', showResult);

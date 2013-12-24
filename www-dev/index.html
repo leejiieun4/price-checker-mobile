@@ -15,6 +15,7 @@
                     console.log(message + ", " + url + ", " + lineNumber);
                     console.log(localStorage.getItem('pastResults'));
                     console.log(localStorage.getItem('vendors'));
+                    analytics.trackEvent('Errror', message, url + ", " + lineNumber);
                 } else {
                     console.error(message + " - " + url + "(" + lineNumber + ")");
                 }

@@ -1,8 +1,18 @@
 define(['rsvp'], function(rsvp) {
+
+    var countPrices = function(result) {
+        var i = 0;
+        for (var res in result.prices) {
+            if (result.prices.hasOwnProperty(res)) {
+                i++;
+            }
+        }
+        return i;
+    }
+
     return function(barcode) {
         return new rsvp.Promise(function(resolve, reject){
             if (barcode && barcode.trim().length > 0) {
-                //resolve({"barcode":"87174181367723","prices":{"Music Magpie":{"price":1.21,"details":{"name":"Music Magpie","url":"http://www.musicmagpie.co.uk"},"title":"HighSchool Musical - Remix Edition [DVD"},"WeBuyDVDs":{"price":1.36,"details":{"name":"WeBuyDVDs","url":"http://www.webuydvds.co.uk/"},"title":"HighSchool Musical - Remix Edition [DVD]"},"Zumu":{"price":0.55,"details":{"name":"Zumu","url":"http://www.zumu.co.uk/"},"title":"High School Musical (Remix)"}},"name":"HighSchool Musical - Remix Edition [DVD","success":true});
                 var xhr = new XMLHttpRequest();
                 xhr.onreadystatechange = function() {
                     if (xhr.readyState==4) {
@@ -34,12 +44,17 @@ define(['rsvp'], function(rsvp) {
                             var response = JSON.parse(xhr.responseText);
                             if (JSON.stringify(response.prices) === "{}") {
                                 reject("No matching items found for barcode " + response.barcode);
+                                analytics.trackEvent('getBestPrice', 'No Results', barcode);
+
                             } else {
                                 resolve(response);
+                                analytics.trackEvent('getBestPrice', 'Results', barcode + ":" + countPrices(response) + ":" + response.name);
                             }
+                            analytics.trackEvent('getBestPrice', 'ResponseTime', (Date.now() - startTime) + "");
                         }
                     }
                 }
+                var startTime = Date.now();
                 xhr.open("GET", "http://price-app-checker-eu.herokuapp.com/?barcode=" + barcode, true);
                 xhr.send();
             } else {

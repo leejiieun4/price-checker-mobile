@@ -54,6 +54,13 @@ module.exports = [
         "file": "plugins/emailcomposer/EmailComposer.js",
         "id": "emailcomposer.EmailComposer",
         "runs": true
+    },
+    {
+        "file": "plugins/com.danielcwilson.plugins.googleanalytics/www/analytics.js",
+        "id": "com.danielcwilson.plugins.googleanalytics.UniversalAnalytics",
+        "clobbers": [
+            "analytics"
+        ]
     }
 ]
 });
