@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>4AA0B679-4E8A-4E18-9105-8FF9774DE551</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Make Me Cash</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>39621D76-0166-4219-9913-8F3CD2534707</key>
+		<string>https://github.com/mattgoldspink/price-checker-mobile.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>platforms/ios/Make Me Cash.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>39621D76-0166-4219-9913-8F3CD2534707</key>
+		<string>../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/mattgoldspink/price-checker-mobile.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>39621D76-0166-4219-9913-8F3CD2534707</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>39621D76-0166-4219-9913-8F3CD2534707</string>
+			<key>IDESourceControlWCCName</key>
+			<string>price-checker-mobile</string>
+		</dict>
+	</array>
+</dict>
+</plist>

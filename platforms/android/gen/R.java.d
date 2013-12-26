@@ -1,4 +1,4 @@
-/Users/matt_goldspink/development/price-checker-mobile/platforms/android/gen/uk/co/mattgoldspink/pricechecker/R.java \
+/Users/matt_goldspink/development/price-checker-mobile/platforms/android/gen/uk/co/mattgoldspink/makemecash/R.java \
  : /Users/matt_goldspink/development/price-checker-mobile/platforms/android/res/drawable/icon.png \
 /Users/matt_goldspink/development/price-checker-mobile/platforms/android/res/drawable/launcher_icon.png \
 /Users/matt_goldspink/development/price-checker-mobile/platforms/android/res/drawable/share_via_barcode.png \
@@ -6,14 +6,19 @@
 /Users/matt_goldspink/development/price-checker-mobile/platforms/android/res/drawable-hdpi/ic_launcher.png \
 /Users/matt_goldspink/development/price-checker-mobile/platforms/android/res/drawable-hdpi/icon.png \
 /Users/matt_goldspink/development/price-checker-mobile/platforms/android/res/drawable-hdpi/launcher_icon.png \
+/Users/matt_goldspink/development/price-checker-mobile/platforms/android/res/drawable-hdpi/screen.9.png \
 /Users/matt_goldspink/development/price-checker-mobile/platforms/android/res/drawable-hdpi/shopper_icon.png \
 /Users/matt_goldspink/development/price-checker-mobile/platforms/android/res/drawable-ldpi/ic_launcher.png \
 /Users/matt_goldspink/development/price-checker-mobile/platforms/android/res/drawable-ldpi/icon.png \
+/Users/matt_goldspink/development/price-checker-mobile/platforms/android/res/drawable-ldpi/screen.9.png \
 /Users/matt_goldspink/development/price-checker-mobile/platforms/android/res/drawable-mdpi/ic_launcher.png \
 /Users/matt_goldspink/development/price-checker-mobile/platforms/android/res/drawable-mdpi/icon.png \
+/Users/matt_goldspink/development/price-checker-mobile/platforms/android/res/drawable-mdpi/screen.9.png \
 /Users/matt_goldspink/development/price-checker-mobile/platforms/android/res/drawable-xhdpi/ic_launcher.png \
 /Users/matt_goldspink/development/price-checker-mobile/platforms/android/res/drawable-xhdpi/icon.png \
 /Users/matt_goldspink/development/price-checker-mobile/platforms/android/res/drawable-xhdpi/launcher_icon.png \
+/Users/matt_goldspink/development/price-checker-mobile/platforms/android/res/drawable-xhdpi/screen.9.png \
+/Users/matt_goldspink/development/price-checker-mobile/platforms/android/res/drawable-xxhdpi/icon.png \
 /Users/matt_goldspink/development/price-checker-mobile/platforms/android/res/drawable-xxhdpi/launcher_icon.png \
 /Users/matt_goldspink/development/price-checker-mobile/platforms/android/res/layout/bookmark_picker_list_item.xml \
 /Users/matt_goldspink/development/price-checker-mobile/platforms/android/res/layout/capture.xml \

@@ -51,15 +51,17 @@ module.exports = [
         ]
     },
     {
-        "file": "plugins/emailcomposer/EmailComposer.js",
-        "id": "emailcomposer.EmailComposer",
-        "runs": true
-    },
-    {
         "file": "plugins/com.danielcwilson.plugins.googleanalytics/www/analytics.js",
         "id": "com.danielcwilson.plugins.googleanalytics.UniversalAnalytics",
         "clobbers": [
             "analytics"
+        ]
+    },
+    {
+        "file": "plugins/de.appplant.cordova.plugin.email-composer/www/email_composer.js",
+        "id": "de.appplant.cordova.plugin.email-composer.EmailComposer",
+        "clobbers": [
+            "plugin.email"
         ]
     }
 ]

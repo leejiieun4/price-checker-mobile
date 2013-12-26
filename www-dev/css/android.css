@@ -1,0 +1,102 @@
+
+.list > li {
+    background-color: #fff;
+}
+
+#search .list {
+    margin: 16px 0;
+}
+
+#search p, #search .p {
+    margin: 32px 16px 16px;
+}
+
+#search p {
+    padding-top: 32px;
+}
+
+.list > li > aside > h4 {
+    margin-right: 8px;
+}
+
+a.button.back::before, a.button.backTo::before {
+    border-color: #fff !important;
+}
+
+.segmented.paging > .button {
+    color: #fff;
+}
+
+/* ==============================
+   Form Styles
+   ============================== */
+input[type=text], input[type=email], input[type=password], input[type=text], input[type=url], input[type=number], textarea {
+  -webkit-appearance: none;
+  border: none;
+  background-color: transparent;
+  background-image:
+    -webkit-linear-gradient(left, #888, #888),
+    -webkit-linear-gradient(left, #888, #888),
+    -webkit-linear-gradient(left, #888, #888);
+  background-image:
+    linear-gradient(left, #888, #888),
+    linear-gradient(left, #888, #888),
+    linear-gradient(left, #888, #888);
+  background-size: 1px 4px, 1px 4px, 100% 1px;
+  background-position: bottom left, bottom right, bottom left;
+  background-repeat: no-repeat;
+  margin:  0;
+  padding-left: 5px;
+  color: #888;
+}
+
+input:focus, textarea:focus {
+  outline: none !important;
+    background-image:
+    -webkit-linear-gradient(left, #81cfeb, #81cfeb),
+    -webkit-linear-gradient(left, #81cfeb, #81cfeb),
+    -webkit-linear-gradient(left, #81cfeb, #81cfeb);
+  background-image:
+    linear-gradient(left, #81cfeb, #81cfeb),
+    linear-gradient(left, #81cfeb, #81cfeb),
+    linear-gradient(left, #81cfeb, #81cfeb);
+}
+
+#barcode {
+    margin-right: 8px;
+    margin-top: 6px;
+    height: 25px;
+    padding: 1px 10px;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  height: auto;
+}
+
+
+.form-control {
+  display: block;
+  -webkit-box-flex: 1;
+  flex: 1;
+}
+
+a.button.delete {
+    top: 25px;
+}
+.tabbar {
+    height: 44px;
+}
+.tabbar > .button {
+    line-height: 30px;
+}
+
+body.hasTabBar article {
+    top: 91px !important;
+}

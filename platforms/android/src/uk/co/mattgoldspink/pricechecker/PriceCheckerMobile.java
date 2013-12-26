@@ -21,6 +21,9 @@ package uk.co.mattgoldspink.pricechecker;
 
 import android.os.Bundle;
 import org.apache.cordova.*;
+import android.webkit.WebView;
+import android.os.Build;
+
 
 public class PriceCheckerMobile extends DroidGap
 {

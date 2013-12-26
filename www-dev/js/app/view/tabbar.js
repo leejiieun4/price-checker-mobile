@@ -6,9 +6,10 @@ define(['chui', 'app/eventBus', "app/priceResultManager"], function($, eventBus,
          selected: 1
     };
     $.UITabbar(opts);
+    var spacingChar = ($.isAndroid ? "&nbsp;" : "<br/>");
 
     function updateBestPriceTab(key, priceManager) {
-        $(".tabbar .best-price label").html("Best Price<br/>£" + priceManager.getTotalBestPrice().toFixed(2));
+        $(".tabbar .best-price label").html("Best Price" + spacingChar + "£" + priceManager.getTotalBestPrice().toFixed(2));
     }
 
     eventBus.subscribe("priceResultRepoChange", updateBestPriceTab);

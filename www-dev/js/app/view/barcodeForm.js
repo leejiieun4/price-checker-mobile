@@ -16,6 +16,10 @@ require(["chui", "app/barcodescanner", "app/getBestPrice", "app/eventBus", "logg
         var findBestPriceBtn = $('#find-the-best-price');
         var feedbackBtn = $('#feedback');
 
+        if ($.isAndroid) {
+            feedbackBtn.removeClass('icon').html("Feedback");
+        }
+
         function registerHandlers() {
 
             launchScanner.on('click', function(event) {
@@ -45,7 +49,7 @@ require(["chui", "app/barcodescanner", "app/getBestPrice", "app/eventBus", "logg
                 });
             });
 
-            feedbackBtn.on('click', function(event) {
+            var handler = function(event) {
                 hideKeyboard();
                 analytics.trackEvent('feedback', 'Launch');
                 feedback().then(function() {
@@ -53,20 +57,28 @@ require(["chui", "app/barcodescanner", "app/getBestPrice", "app/eventBus", "logg
                 }, function() {
                     analytics.trackEvent('feedback', 'Cancelled');
                 });
-            });
+            }
+
+            $('#feedback').on('click', handler);
+            $('#feedback').on('singletap', handler);
+        }
+
+        function handleBackKey() {
+            $.UIGoBack();
         }
 
         function onDeviceReady() {
             fastclick.attach(document.body);
             registerHandlers();
-            if (analytics) {
+            document.addEventListener("backbutton", handleBackKey, false);
+            if (window.analytics) {
                 analytics.startTrackerWithId('UA-43287931-3');
                 analytics.trackView('App Launch');
             } else {
                 var emptyFn = function(){};
                 window.analytics = {trackView: emptyFn, trackEvent: emptyFn};
             }
-            if (parseFloat(window.device.version) >= 7) {
+            if (window.device && parseFloat(window.device.version) >= 7) {
                 $('body').addClass("isiOSseven");
             }
             setTimeout(function() {

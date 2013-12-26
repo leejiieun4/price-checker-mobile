@@ -33,6 +33,10 @@ define(["logger"], function(logger) {
                     handlers[i](event, data);
                 } catch (e) {
                     logger.log(e);
+                    if (e.stack) {
+                        logger.log(e.stack);
+                    }
+                    analytics.trackEvent('Error', e, (e.stack ? e.stack : "no stack"));
                 }
             }
         }

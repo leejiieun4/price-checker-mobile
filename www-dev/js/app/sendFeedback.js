@@ -1,13 +1,10 @@
-define(["rsvp"], function(rsvp) {
+define(["rsvp", "logger"], function(rsvp, logger) {
     return function() {
-        var composer = window.cordova.require('emailcomposer.EmailComposer');
+        var composer = window.cordova.require('de.appplant.cordova.plugin.email-composer.EmailComposer');
         return new rsvp.Promise(function(resolve, reject){
-            composer.show({
-                to: 'makemecashapp@gmail.com',
+            composer.open({
+                to: ['makemecashapp@gmail.com'],
                 subject: 'Make Me Cash App Feedback',
-                body: '',
-                isHtml: true,
-                attachments: [],
                 onSuccess: function (winParam) {
                     resolve(winParam);
                 },

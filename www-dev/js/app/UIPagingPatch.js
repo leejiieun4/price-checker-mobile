@@ -185,4 +185,95 @@ define(['chui'], function($) {
        cachedList.addClass('deletable');
        return cachedList;
     }
+
+    $.UIGoBack = function () {
+       var histLen = $.UINavigationHistory.length;
+       if (histLen > 1) {
+           var currentArticle = $('article.current');
+           var destination = $($.UINavigationHistory[histLen-2]);
+           var currentToolbar;
+           var destinationToolbar;
+           if (window && window.jQuery && $ === window.jQuery) {
+              if (currentArticle.next().hasClass('toolbar')) {
+                 currentToolbar = currentArticle.next('toolbar');
+              }
+              if (destination.next().hasClass('toolbar')) {
+                 destinationToolbar = destination.next('toolbar');
+              }
+           } else {
+              currentToolbar = currentArticle.next().hasClass('toolbar');
+              destinationToolbar = destination.next().hasClass('toolbar');
+           }
+           currentToolbar.removeClass('current').addClass('next');
+           destinationToolbar.removeClass('previous').addClass('current');
+
+           destination.removeClass('previous').removeClass('next').addClass('current');
+           destination.prev().removeClass('previous').removeClass('next').addClass('current');
+           currentArticle.removeClass('current').addClass('next');
+           currentArticle.prev().removeClass('current').addClass('next');
+           $.UISetHashOnUrl($.UINavigationHistory[histLen-2]);
+           if ($.UINavigationHistory[histLen-1] !== $.firstArticle[0].id) {
+              $.UINavigationHistory.pop();
+           }
+        }
+    };
+
+    $.UITabbar = function ( options ) {
+         /*
+         var options = {
+            id: 'mySpecialTabbar',
+            tabs: 4,
+            labels: ["Refresh", "Add", "Info", "Downloads", "Favorite"],
+            icons: ["refresh", "add", "info", "downloads", "favorite"],
+            selected: 2
+         }
+         */
+         if (!options) return;
+         $.body.addClass('hasTabBar');
+         if ($.isiOS6) $.body.addClass('isiOS6');
+         var id = options.id || $.Uuid();
+         var selected = options.selected || '';
+         var tabbar = '<div class="tabbar" id="' + id + '">';
+         var icon = ($.isiOS || $.isSafari) ? '<span class="icon"></span>' : '';
+         for (var i = 0; i < options.tabs; i++) {
+            tabbar += '<a class="button ' + options.icons[i];
+            if (selected === i+1) {
+               tabbar += ' selected';
+            }
+            tabbar += '">' + icon + '<label>' + options.labels[i] + '</label></a>';
+         }
+         tabbar += '</div>';
+         $.body.append(tabbar);
+         $('nav').removeClass('current').addClass('next');
+         $('nav').eq(selected).removeClass('next').addClass('current');
+         $('article').removeClass('current').addClass('next');
+         $('article').eq(selected-1).removeClass('next').addClass('current');
+         $.body.find('.tabbar').on('singletap', '.button', function() {
+            var $this = this;
+            var index;
+            var id;
+            $this.classList.add('selected');
+            $(this).siblings('a').removeClass('selected');
+            index = $(this).index();
+            $('article.previous').removeClass('previous').addClass('next');
+            $('nav.previous').removeClass('previous').addClass('next');
+            $('article.current').removeClass('current').addClass('next');
+            $('nav.current').removeClass('current').addClass('next');
+            id = $('article').eq(index)[0].id;
+            $.UISetHashOnUrl('#'+id);
+            if ($.UINavigationHistory[0] === ('#' + id)) {
+               $.UINavigationHistory = [$.UINavigationHistory[0]];
+            } else if ($.UINavigationHistory.length === 1) {
+               if ($.UINavigationHistory[0] !== ('#' + id)) {
+                  $.UINavigationHistory = ['#'+id];
+               }
+            } else if($.UINavigationHistory.length === 3) {
+               $.UINavigationHistory.pop();
+            } else {
+               $.UINavigationHistory[1] = '#'+id;
+            }
+            $('article').eq(index).removeClass('next').addClass('current');
+            $('nav').eq(index+1).removeClass('next').addClass('current');
+         });
+      }
 });

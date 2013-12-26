@@ -3,23 +3,23 @@
     <head>
         <meta charset="utf-8" />
         <meta name="format-detection" content="telephone=no" />
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <title>Make Me Cash</title>
 <link type="text/css" rel="stylesheet" href="css/output.min.css"></link>
         
         
         
+        
         <script>
-            window.onerror = function(a,b,c) {
+            window.onerror = function(message, url, lineNumber) {
                 if (window.cordova) {
-                    console.log(a + ", " + b + ", " + c);
-                    console.log(localStorage.getItem('pastResults'));
-                    console.log(localStorage.getItem('vendors'));
+                    console.debug(message + ", " + url + ", " + lineNumber);
+                    console.debug(localStorage.getItem('pastResults'));
+                    console.debug(localStorage.getItem('vendors'));
+                    analytics.trackEvent('Errror', message, url + ", " + lineNumber);
                 } else {
-                    console.error(a);
-                    console.error(b);
-                    console.error(c);
+                    console.error(message + " - " + url + "(" + lineNumber + ")");
                 }
             }
         </script>
@@ -30,6 +30,7 @@
         -->
         <nav class='current'>
             <h1>Make Me Cash</h1>
+            <a class='button icon' href='javascript:void(null)' title='Feedback' id="feedback"><span class="glyphicon glyphicon-question-sign"></span></a>
         </nav>
         <article id='search' class='current'>
             <section>
@@ -48,6 +49,9 @@
                         <li><a href="http://musicmagpie.co.uk"><img src="img/logos/musicmagpie.gif"/></a>
                         <li><a href="http://zumu.co.uk"><img src="img/logos/zumu.png"/></a>
                         <li><a href="http://zapper.co.uk"><img src="img/logos/zapper.png"/></a>
+                        <li><a href="https://uk.webuy.com"><img height="60" src="img/logos/cex.png"/></a>
+                        <li><a href="http://www.webuydvds.co.uk">webuydvds.co.uk</a>
+
                     </ul>
                     <b>Note:</b> Make Me Cash app is not affiliated with any of these sites
                 </div>
@@ -76,6 +80,7 @@
                 <h3>By Vendor</h3>
             </section>
         </article>
+
         <!--
             SEARCHING VIEW
         -->
@@ -84,6 +89,7 @@
         </nav>
         <article id="searching" class='next'>
         </article>
+
         <!--
             SINGLE RESULT VIEW
         -->

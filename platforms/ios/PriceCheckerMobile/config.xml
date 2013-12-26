@@ -28,7 +28,7 @@
         <param name="onload" value="true" />
     </feature>
     <feature name="EmailComposer">
-        <param name="ios-package" value="EmailComposer" />
+        <param name="ios-package" value="APPEmailComposer" />
     </feature>
     <feature name="UniversalAnalytics">
         <param name="ios-package" value="UniversalAnalyticsPlugin" />

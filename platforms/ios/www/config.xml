@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="uk.co.mattgoldspink.makemecash" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>PriceCheckerMobile</name>
+    <name>Make Me Cash</name>
     <description>
         Make Me Cash App allows you to find which sites will buy your DVDs, CDs and Games for the best prices
     </description>
@@ -8,7 +8,8 @@
         Matt Goldspink
     </author>
     <access origin="http://price-app-checker-eu.herokuapp.com" />
-    <preference name="fullscreen" value="true" />
+    <preference name="Fullscreen" value="false" />
+    <preference name="DisallowOverscroll" value="true"/>
     <preference name="webviewbounce" value="false" />
     <preference name="UIWebViewBounce" value="false" />
     <preference name="show-splash-screen-spinner" value="false" />

@@ -30,7 +30,7 @@ module.exports = function(grunt) {
                 src: [
                     "*"
                 ],
-                dest: "platforms/ios/PriceCheckerMobile/Resources/icons",
+                dest: "platforms/ios/Make Me Cash/Resources/icons",
                 cwd: "assets/ios",
                 expand: true
             },
@@ -38,8 +38,20 @@ module.exports = function(grunt) {
                 src: [
                     "*"
                 ],
-                dest: "platforms/ios/PriceCheckerMobile/Resources/icons",
+                dest: "platforms/ios/Make Me Cash/Resources/icons",
                 cwd: "assets/ios7",
+                expand: true
+            }
+        ]
+      },
+      androidicons: {
+        files: [
+            {
+                src: [
+                    "**/*.png", "!playstore-icon.png", "!**/screen.png"
+                ],
+                dest: "platforms/android/res",
+                cwd: "assets/android",
                 expand: true
             }
         ]
@@ -71,7 +83,8 @@ module.exports = function(grunt) {
           mainConfigFile: "www-dev/js/main.js",
           out: "www-dev/js/optimized.js",
           findNestedDependencies: true,
-          wrap: true
+          wrap: true,
+          optimize: 'none'
         }
       }
     },
@@ -79,16 +92,30 @@ module.exports = function(grunt) {
     cssmin: {
       combine: {
         files: {
-            'www-dev/css/output.css': ['www-dev/css/bootstrap-glyphicons.css',
-            'www-dev/js/bower_components/chocolatechip-ui/chui/chui.ios-3.0.4.min.css',
-            'www-dev/css/index.css']
+            'merges/ios/css/output.css': ['www-dev/css/bootstrap-glyphicons.css',
+                                       'www-dev/js/bower_components/chocolatechip-ui/chui/chui.ios-3.0.4.css',
+                                       'www-dev/css/index.css',
+                                       'www-dev/css/ios.css'
+            ],
+            'merges/android/css/output.css': ['www-dev/css/bootstrap-glyphicons.css',
+                                       'www-dev/js/bower_components/chocolatechip-ui/chui/chui.android-3.0.4.css',
+                                       'www-dev/css/index.css',
+                                       'www-dev/css/android.css'
+            ]
         }
       },
-      minify: {
+      minifyios: {
         expand: true,
-        cwd: 'www-dev',
-        src: ['css/output.css'],
-        dest: 'www',
+        cwd: 'merges/ios/css',
+        src: ['output.css'],
+        dest: 'merges/ios/css/',
+        ext: '.min.css'
+      },
+      minifyandroid: {
+        expand: true,
+        cwd: 'merges/android/css',
+        src: ['output.css'],
+        dest: 'merges/android/css/',
         ext: '.min.css'
       }
     },
@@ -102,13 +129,25 @@ module.exports = function(grunt) {
                 command: 'prepare',
                 platforms: ['ios']
             }
+        },
+        prepareandroid: {
+            options: {
+                command: 'prepare',
+                platforms: ['android']
+            }
+        },
+        compileandroid: {
+            options: {
+                command: 'compile',
+                platforms: ['android']
+            }
         }
     },
 
     autoshot: {
         ios7: {
           options: {
-            path: 'platforms/ios/PriceCheckerMobile/Resources/splash',
+            path: 'platforms/ios/Make Me Cash/Resources/splash',
             local: {
               path: 'www-dev',
               port: 26380,
@@ -123,16 +162,16 @@ module.exports = function(grunt) {
 
       rename: {
         iphonesplash: {
-          src: 'platforms/ios/PriceCheckerMobile/Resources/splash/local-320x480-Default~iphone.png',
-          dest: 'platforms/ios/PriceCheckerMobile/Resources/splash/Default~iphone.png'
+          src: 'platforms/ios/Make Me Cash/Resources/splash/local-320x480-Default~iphone.png',
+          dest: 'platforms/ios/Make Me Cash/Resources/splash/Default~iphone.png'
         },
         iphonex2splash: {
-          src: 'platforms/ios/PriceCheckerMobile/Resources/splash/local-640x960-Default~iphone.png',
-          dest: 'platforms/ios/PriceCheckerMobile/Resources/splash/Default@2x~iphone.png'
+          src: 'platforms/ios/Make Me Cash/Resources/splash/local-640x960-Default~iphone.png',
+          dest: 'platforms/ios/Make Me Cash/Resources/splash/Default@2x~iphone.png'
         },
         iphone5splash: {
-          src: 'platforms/ios/PriceCheckerMobile/Resources/splash/local-640x1136-Default~iphone.png',
-          dest: 'platforms/ios/PriceCheckerMobile/Resources/splash/Default-568h@2x~iphone.png'
+          src: 'platforms/ios/Make Me Cash/Resources/splash/local-640x1136-Default~iphone.png',
+          dest: 'platforms/ios/Make Me Cash/Resources/splash/Default-568h@2x~iphone.png'
         }
       }
   });
@@ -148,6 +187,9 @@ module.exports = function(grunt) {
 
   grunt.registerTask('splash', ['autoshot:ios7', 'rename:iphonesplash', 'rename:iphonex2splash', 'rename:iphone5splash']);
   // Default task(s).
-  grunt.registerTask('default', ['clean', 'requirejs', 'cssmin:combine', 'cssmin:minify', 'copy:main', 'copy:ios7icons', 'cordovacli:prepareios', 'splash']);
+  grunt.registerTask('ios', ['clean', 'requirejs', 'cssmin:combine', 'cssmin:minifyios', 'copy:main', 'copy:ios7icons', 'cordovacli:prepareios', 'splash']);
+  grunt.registerTask('android', ['clean', 'requirejs', 'cssmin:combine', 'cssmin:minifyandroid', 'copy:main', 'copy:androidicons', 'cordovacli:prepareandroid', 'cordovacli:compileandroid']);
+
+  grunt.registerTask('default', ['clean', 'requirejs', 'cssmin:combine', 'cssmin:minifyios', 'cssmin:minifyandroid', 'copy:main', 'copy:ios7icons', 'copy:androidicons', 'cordovacli:prepareios', 'cordovacli:prepareandroid',  'cordovacli:compileandroid', 'splash']);
 
 };
