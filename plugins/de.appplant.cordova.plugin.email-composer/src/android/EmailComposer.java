@@ -112,7 +112,7 @@ public class EmailComposer extends CordovaPlugin {
 
         this.cordova.getActivity().runOnUiThread(new Runnable() {
             public void run() {
-                this.cordova.startActivityForResult(plugin, draft, 0);
+                plugin.cordova.startActivityForResult(plugin, draft, 0);
             }
         });
     }

@@ -93,12 +93,12 @@ module.exports = function(grunt) {
       combine: {
         files: {
             'merges/ios/css/output.css': ['www-dev/css/bootstrap-glyphicons.css',
-                                       'www-dev/js/bower_components/chocolatechip-ui/chui/chui.ios-3.0.4.css',
+                                       'www-dev/js/bower_components/chocolatechip-ui/chui/chui.ios-3.0.7.css',
                                        'www-dev/css/index.css',
                                        'www-dev/css/ios.css'
             ],
             'merges/android/css/output.css': ['www-dev/css/bootstrap-glyphicons.css',
-                                       'www-dev/js/bower_components/chocolatechip-ui/chui/chui.android-3.0.4.css',
+                                       'www-dev/js/bower_components/chocolatechip-ui/chui/chui.android-3.0.7.css',
                                        'www-dev/css/index.css',
                                        'www-dev/css/android.css'
             ]

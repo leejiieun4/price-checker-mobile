@@ -6,7 +6,7 @@ define(['chui', "app/eventBus", "text!app/view/tmpl/singleResult.tmpl", "text!ap
     function showResult(key, result) {
         $('#results').html(singleResultTmpl(result));
         $.UIGoToArticle('#results');
-        $.UINavigationHistory.push('#results');
+        //$.UINavigationHistory.push('#results');
         analytics.trackEvent('singleResult', 'Show', result.barcode);
     }
 
@@ -17,7 +17,7 @@ define(['chui', "app/eventBus", "text!app/view/tmpl/singleResult.tmpl", "text!ap
     function showSearchScreen(key, result) {
         $('#searching').html(searchingTmpl(result));
         $.UIGoToArticle('#searching');
-        $.UINavigationHistory.push('#searching');
+        //$.UINavigationHistory.push('#searching');
     }
 
     bus.subscribe('searchingForBarcode', showSearchScreen)

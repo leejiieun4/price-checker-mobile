@@ -1,67 +1,67 @@
 define(['chui'], function($) {
 
     $.UIPaging = function ( ) {
-        var currentArticle = $('.segmented.paging').closest('nav').next();
-        if (window && window.jQuery && $ === window.jQuery) {
-            if ($('.segmented.paging').hasClass('horizontal')) {
-                currentArticle.addClass('horizontal');
-            } else if ($('.segmented.paging').hasClass('vertical')) {
-                currentArticle.addClass('vertical');
-            }
-        } else {
-            if ($('.segmented.paging').hasClass('horizontal')[0]) {
-                currentArticle.addClass('horizontal');
-            } else if ($('.segmented.paging').hasClass('vertical')[0]) {
-                currentArticle.addClass('vertical');
-            }
-        }
-        currentArticle.children().eq(0).addClass('current');
-        currentArticle.children().eq(0).siblings().addClass('next');
-        var sections = function() {
-            return currentArticle.children().length;
-        }
+       var currentArticle = $('.segmented.paging').closest('nav').next();
+       if (window && window.jQuery && $ === window.jQuery) {
+          if ($('.segmented.paging').hasClass('horizontal')) {
+             currentArticle.addClass('horizontal');
+          } else if ($('.segmented.paging').hasClass('vertical')) {
+             currentArticle.addClass('vertical');
+          }
+       } else {
+          if ($('.segmented.paging').hasClass('horizontal')[0]) {
+             currentArticle.addClass('horizontal');
+          } else if ($('.segmented.paging').hasClass('vertical')[0]) {
+             currentArticle.addClass('vertical');
+          }
+       }
+       currentArticle.children().eq(0).addClass('current');
+       currentArticle.children().eq(0).siblings().addClass('next');
+       var sections = function() {
+           return currentArticle.children().length;
+       }
 
-        $('.segmented.paging').on($.eventStart, '.button:first-of-type', function() {
-            if (sections() === 1) return
-            var me = $(this);
-            me.next().removeClass('selected');
-            me.addClass('selected');
-            var currentSection;
-            currentSection = $('section.current');
-            if (currentSection.index() === 0)  {
-                currentSection.removeClass('current');
-                currentArticle.children().eq(sections() - 1).addClass('current').removeClass('next');
-                currentArticle.children().eq(sections() - 1).siblings().removeClass('next').addClass('previous');
-            } else {
-                currentSection.removeClass('current').addClass('next');
-                currentSection.prev().removeClass('previous').addClass('current');
-            }
+       $('.segmented.paging').on($.eventStart, '.button:first-of-type', function() {
+          if (sections() === 1) return
+          var me = $(this);
+          me.next().removeClass('selected');
+          me.addClass('selected');
+          var currentSection;
+          currentSection = $('section.current');
+          if (currentSection.index() === 0)  {
+              currentSection.removeClass('current');
+              currentArticle.children().eq(sections() - 1).addClass('current').removeClass('next');
+              currentArticle.children().eq(sections() - 1).siblings().removeClass('next').addClass('previous');
+          } else {
+              currentSection.removeClass('current').addClass('next');
+              currentSection.prev().removeClass('previous').addClass('current');
+          }
 
-            setTimeout(function() {
-                me.removeClass('selected');
-            }, 500);
-        });
-        $('.segmented.paging').on($.eventStart, '.button:last-of-type', function() {
-            if (sections() === 1) return
-            var me = $(this);
-            me.prev().removeClass('selected');
-            me.addClass('selected');
-            var currentSection;
-            if (this.classList.contains('disabled')) return;
-            currentSection = $('section.current');
-            if (currentSection.index() === sections() - 1) {
-                // start again!
-                currentSection.removeClass('current');
-                currentArticle.children().eq(0).addClass('current').removeClass('previous');
-                currentArticle.children().eq(0).siblings().removeClass('previous').addClass('next');
-            } else {
-                currentSection.removeClass('current').addClass('previous');
-                currentSection.next().removeClass('next').addClass('current');
-            }
-            setTimeout(function() {
-                me.removeClass('selected');
-            }, 250);
-        });
+          setTimeout(function() {
+              me.removeClass('selected');
+          }, 250);
+       });
+       $('.segmented.paging').on($.eventStart, '.button:last-of-type', function() {
+          if (sections() === 1) return
+          var me = $(this);
+          me.prev().removeClass('selected');
+          me.addClass('selected');
+          var currentSection;
+          if (this.classList.contains('disabled')) return;
+          currentSection = $('section.current');
+          if (currentSection.index() === sections() - 1) {
+              // start again!
+              currentSection.removeClass('current');
+              currentArticle.children().eq(0).addClass('current').removeClass('previous');
+              currentArticle.children().eq(0).siblings().removeClass('previous').addClass('next');
+          } else {
+              currentSection.removeClass('current').addClass('previous');
+              currentSection.next().removeClass('next').addClass('current');
+          }
+          setTimeout(function() {
+              me.removeClass('selected');
+          }, 250);
+       });
     }
 
 
@@ -186,7 +186,7 @@ define(['chui'], function($) {
        return cachedList;
     }
 
-    $.UIGoBack = function () {
+    $.UIGoBack_ = function () {
        var histLen = $.UINavigationHistory.length;
        if (histLen > 1) {
            var currentArticle = $('article.current');
@@ -252,6 +252,7 @@ define(['chui'], function($) {
             var $this = this;
             var index;
             var id;
+            $.publish('chui/navigate/leave', $('article.current')[0].id);
             $this.classList.add('selected');
             $(this).siblings('a').removeClass('selected');
             index = $(this).index();
@@ -260,12 +261,23 @@ define(['chui'], function($) {
             $('article.current').removeClass('current').addClass('next');
             $('nav.current').removeClass('current').addClass('next');
             id = $('article').eq(index)[0].id;
+            $.publish('chui/navigate/enter', id);
+            if (window && window.jQuery) {
+               $('article').each(function(idx, ctx) {
+                  $(ctx).scrollTop(0);
+               });
+            } else {
+               $('article').eq(index).siblings('article').forEach(function(ctx) {
+                  ctx.scrollTop = 0;
+               });
+            }
+
             $.UISetHashOnUrl('#'+id);
             if ($.UINavigationHistory[0] === ('#' + id)) {
                $.UINavigationHistory = [$.UINavigationHistory[0]];
             } else if ($.UINavigationHistory.length === 1) {
                if ($.UINavigationHistory[0] !== ('#' + id)) {
-                  $.UINavigationHistory = ['#'+id];
+                  $.UINavigationHistory.push('#'+id);
                }
             } else if($.UINavigationHistory.length === 3) {
                $.UINavigationHistory.pop();
@@ -276,4 +288,47 @@ define(['chui'], function($) {
             $('nav').eq(index+1).removeClass('next').addClass('current');
          });
       }
+
+    UIGoToArticle = function ( destination ) {
+       if ($.isNavigating) return;
+       $.isNavigating = true;
+       var current = $('article.current');
+       var currentNav = current.prev();
+       destination = $(destination);
+       var destinationID = '#' + destination[0].id;
+       var destinationNav = destination.prev();
+       var currentToolbar;
+       var destinationToolbar;
+       $.publish('chui/navigate/leave', current[0].id);
+       $.UINavigationHistory.push(destinationID);
+       $.publish('chui/navigate/enter', destination[0].id);
+       current[0].scrollTop = 0;
+       destination[0].scrollTop = 0;
+       if (window && window.jQuery && $ === window.jQuery) {
+          if (current.next().hasClass('toolbar')) {
+             currentToolbar = current.next('.toolbar');
+          } else {
+             currentToolbar = $();
+          }
+          if (destination.next().hasClass('toolbar')) {
+             destinationToolbar = destination.next('.toolbar');
+          } else {
+             destinationToolbar = $();
+          }
+       } else {
+          currentToolbar = current.next().hasClass('toolbar');
+          destinationToolbar = destination.next().hasClass('toolbar');
+       }
+       current.removeClass('current').addClass('previous');
+       currentNav.removeClass('current').addClass('previous');
+       currentToolbar.removeClass('current').addClass('previous');
+       destination.removeClass('next').addClass('current');
+       destinationNav.removeClass('next').addClass('current');
+       destinationToolbar.removeClass('next').addClass('current');
+
+       $.UISetHashOnUrl(destination[0].id);
+       setTimeout(function() {
+          $.isNavigating = false;
+       }, 1);
+    }
 });

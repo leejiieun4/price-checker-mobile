@@ -18,5 +18,5 @@
 -keep class com.google.zxing.client.android.pref.BSPlusPreference { <init>(...); }
 
 # view AndroidManifest.xml #generated:6
--keep class uk.co.mattgoldspink.makemecash.PriceCheckerMobile { <init>(...); }
+-keep class uk.co.mattgoldspink.makemecash.MakeMeCash { <init>(...); }
 

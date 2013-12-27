@@ -3,18 +3,14 @@
 /Users/matt_goldspink/development/price-checker-mobile/platforms/android/res/drawable/launcher_icon.png \
 /Users/matt_goldspink/development/price-checker-mobile/platforms/android/res/drawable/share_via_barcode.png \
 /Users/matt_goldspink/development/price-checker-mobile/platforms/android/res/drawable/shopper_icon.png \
-/Users/matt_goldspink/development/price-checker-mobile/platforms/android/res/drawable-hdpi/ic_launcher.png \
 /Users/matt_goldspink/development/price-checker-mobile/platforms/android/res/drawable-hdpi/icon.png \
 /Users/matt_goldspink/development/price-checker-mobile/platforms/android/res/drawable-hdpi/launcher_icon.png \
 /Users/matt_goldspink/development/price-checker-mobile/platforms/android/res/drawable-hdpi/screen.9.png \
 /Users/matt_goldspink/development/price-checker-mobile/platforms/android/res/drawable-hdpi/shopper_icon.png \
-/Users/matt_goldspink/development/price-checker-mobile/platforms/android/res/drawable-ldpi/ic_launcher.png \
 /Users/matt_goldspink/development/price-checker-mobile/platforms/android/res/drawable-ldpi/icon.png \
 /Users/matt_goldspink/development/price-checker-mobile/platforms/android/res/drawable-ldpi/screen.9.png \
-/Users/matt_goldspink/development/price-checker-mobile/platforms/android/res/drawable-mdpi/ic_launcher.png \
 /Users/matt_goldspink/development/price-checker-mobile/platforms/android/res/drawable-mdpi/icon.png \
 /Users/matt_goldspink/development/price-checker-mobile/platforms/android/res/drawable-mdpi/screen.9.png \
-/Users/matt_goldspink/development/price-checker-mobile/platforms/android/res/drawable-xhdpi/ic_launcher.png \
 /Users/matt_goldspink/development/price-checker-mobile/platforms/android/res/drawable-xhdpi/icon.png \
 /Users/matt_goldspink/development/price-checker-mobile/platforms/android/res/drawable-xhdpi/launcher_icon.png \
 /Users/matt_goldspink/development/price-checker-mobile/platforms/android/res/drawable-xhdpi/screen.9.png \
@@ -25,7 +21,6 @@
 /Users/matt_goldspink/development/price-checker-mobile/platforms/android/res/layout/encode.xml \
 /Users/matt_goldspink/development/price-checker-mobile/platforms/android/res/layout/help.xml \
 /Users/matt_goldspink/development/price-checker-mobile/platforms/android/res/layout/history_list_item.xml \
-/Users/matt_goldspink/development/price-checker-mobile/platforms/android/res/layout/main.xml \
 /Users/matt_goldspink/development/price-checker-mobile/platforms/android/res/layout/search_book_contents.xml \
 /Users/matt_goldspink/development/price-checker-mobile/platforms/android/res/layout/search_book_contents_header.xml \
 /Users/matt_goldspink/development/price-checker-mobile/platforms/android/res/layout/search_book_contents_list_item.xml \

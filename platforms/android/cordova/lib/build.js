@@ -20,8 +20,6 @@
 */
 
 var shell   = require('shelljs'),
-    exec    = require('./exec'),
-    Q       = require('q'),
     clean   = require('./clean'),
     path    = require('path'),
     fs      = require('fs'),
@@ -29,7 +27,6 @@ var shell   = require('shelljs'),
 
 /*
  * Builds the project with ant.
- * Returns a promise.
  */
 module.exports.run = function(build_type) {
     //default build type
@@ -37,24 +34,29 @@ module.exports.run = function(build_type) {
     var cmd;
     switch(build_type) {
         case '--debug' :
-            cmd = 'ant debug -f "' + path.join(ROOT, 'build.xml') + '"';
+            clean.run();
+            cmd = 'ant debug -f ' + path.join(ROOT, 'build.xml');
             break;
         case '--release' :
-            cmd = 'ant release -f "' + path.join(ROOT, 'build.xml') + '"';
+            clean.run();
+            cmd = 'ant release -f ' + path.join(ROOT, 'build.xml');
             break;
         case '--nobuild' :
             console.log('Skipping build...');
-            return Q();
+            break;
         default :
-            return Q.reject('Build option \'' + build_type + '\' not recognized.');
+           console.error('Build option \'' + build_type + '\' not recognized.');
+           process.exit(2);
+           break;
     }
     if(cmd) {
-        return clean.run() // TODO: Can we stop cleaning every time and let ant build incrementally?
-        .then(function() {
-            return exec(cmd);
-        });
+        var result = shell.exec(cmd, {silent:false, async:false});
+        if(result.code > 0) {
+            console.error('ERROR: Failed to build android project.');
+            console.error(result.output);
+            process.exit(2);
+        }
     }
-    return Q();
 }
 
 /*

@@ -3,8 +3,8 @@ require.config({
         rsvp: 'bower_components/rsvp/rsvp.amd',
         "$$": 'app/$$',
         logger: 'app/logger',
-        chocolatechip: 'bower_components/chocolatechip-ui/chui/chocolatechip-3.0.4',
-        chui: 'bower_components/chocolatechip-ui/chui/chui-3.0.4',
+        chocolatechip: 'bower_components/chocolatechip-ui/chui/chocolatechip-3.0.7',
+        chui: 'bower_components/chocolatechip-ui/chui/chui-3.0.7',
         text: 'bower_components/requirejs-text/text',
         fastclick: 'bower_components/fastclick/lib/fastclick'
     },
