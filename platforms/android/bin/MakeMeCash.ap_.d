@@ -105,6 +105,7 @@
 /Users/matt_goldspink/development/price-checker-mobile/platforms/android/assets/www/img/logos \
 /Users/matt_goldspink/development/price-checker-mobile/platforms/android/assets/www/img/logos/cex.png \
 /Users/matt_goldspink/development/price-checker-mobile/platforms/android/assets/www/img/logos/musicmagpie.gif \
+/Users/matt_goldspink/development/price-checker-mobile/platforms/android/assets/www/img/logos/musicmagpie_no_bird.png \
 /Users/matt_goldspink/development/price-checker-mobile/platforms/android/assets/www/img/logos/zapper.png \
 /Users/matt_goldspink/development/price-checker-mobile/platforms/android/assets/www/img/logos/zumu.png \
 /Users/matt_goldspink/development/price-checker-mobile/platforms/android/assets/www/js/optimized.js \
@@ -112,6 +113,7 @@
 /Users/matt_goldspink/development/price-checker-mobile/platforms/android/assets/www/plugins/com.phonegap.plugins.barcodescanner \
 /Users/matt_goldspink/development/price-checker-mobile/platforms/android/assets/www/plugins/de.appplant.cordova.plugin.email-composer \
 /Users/matt_goldspink/development/price-checker-mobile/platforms/android/assets/www/plugins/org.apache.cordova.device \
+/Users/matt_goldspink/development/price-checker-mobile/platforms/android/assets/www/plugins/org.apache.cordova.inappbrowser \
 /Users/matt_goldspink/development/price-checker-mobile/platforms/android/assets/www/plugins/org.apache.cordova.network-information \
 /Users/matt_goldspink/development/price-checker-mobile/platforms/android/assets/www/plugins/org.apache.cordova.splashscreen \
 /Users/matt_goldspink/development/price-checker-mobile/platforms/android/assets/www/plugins/com.danielcwilson.plugins.googleanalytics/www \
@@ -122,6 +124,8 @@
 /Users/matt_goldspink/development/price-checker-mobile/platforms/android/assets/www/plugins/de.appplant.cordova.plugin.email-composer/www/email_composer.js \
 /Users/matt_goldspink/development/price-checker-mobile/platforms/android/assets/www/plugins/org.apache.cordova.device/www \
 /Users/matt_goldspink/development/price-checker-mobile/platforms/android/assets/www/plugins/org.apache.cordova.device/www/device.js \
+/Users/matt_goldspink/development/price-checker-mobile/platforms/android/assets/www/plugins/org.apache.cordova.inappbrowser/www \
+/Users/matt_goldspink/development/price-checker-mobile/platforms/android/assets/www/plugins/org.apache.cordova.inappbrowser/www/InAppBrowser.js \
 /Users/matt_goldspink/development/price-checker-mobile/platforms/android/assets/www/plugins/org.apache.cordova.network-information/www \
 /Users/matt_goldspink/development/price-checker-mobile/platforms/android/assets/www/plugins/org.apache.cordova.network-information/www/Connection.js \
 /Users/matt_goldspink/development/price-checker-mobile/platforms/android/assets/www/plugins/org.apache.cordova.network-information/www/network.js \

@@ -17,24 +17,24 @@ input[type="number"]::-webkit-inner-spin-button {
   height: auto;
 }
 
-.form-control:-moz-placeholder {
+input.form-control:-moz-placeholder {
   color: #999999;
 }
 
-.form-control::-moz-placeholder {
+input.form-control::-moz-placeholder {
   color: #999999;
 }
 
 
-.form-control:-ms-input-placeholder {
+input.form-control:-ms-input-placeholder {
   color: #999999;
 }
 
-.form-control::-webkit-input-placeholder {
+input.form-control::-webkit-input-placeholder {
   color: #999999;
 }
 
-.form-control {
+input.form-control {
   display: block;
   -webkit-box-flex: 1;
   flex: 1;
@@ -53,21 +53,21 @@ input[type="number"]::-webkit-inner-spin-button {
           transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 }
 
-.form-control:focus {
+input.form-control:focus {
   border-color: rgba(82, 168, 236, 0.8);
   outline: 0;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
           box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
 }
 
-.form-control[disabled],
-.form-control[readonly],
-fieldset[disabled] .form-control {
+input.form-control[disabled],
+input.form-control[readonly],
+fieldset[disabled] input.form-control {
   cursor: not-allowed;
   background-color: #eeeeee;
 }
 
-.input-small {
+input.input-small {
   height: 30px;
   padding: 5px 10px;
   font-size: 12px;
@@ -121,4 +121,38 @@ a.button, a.button.back::before, a.button.back, a.button.backTo {
 a.button.back::before, a.button.backTo::before {
     color: #FFF;
     background-color: #FFF;
+}
+
+.tabbar > .button > .icon {
+    display: none;
+}
+
+.isiOSseven nav {
+    padding-top: 15px !important;
+    height: 60px;
+}
+
+.isiOSseven nav h1, .isiOSseven nav div a {
+    top: 15px;
+}
+
+.isiOSseven nav>h1+a.button {
+    top: 20px;
+}
+
+.isiOSseven nav>h1+a.button.icon {
+    top: 24px;
+}
+
+.isiOSseven nav a {
+    top: 3px;
+}
+
+.isiOSseven article {
+    top: 60px;
+}
+
+a.button.icon {
+    -webkit-transition: none 0s;
+    transition: none 0s;
 }

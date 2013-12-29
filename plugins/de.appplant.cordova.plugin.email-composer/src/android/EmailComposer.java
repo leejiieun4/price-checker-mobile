@@ -110,9 +110,9 @@ public class EmailComposer extends CordovaPlugin {
     private void openDraft (final Intent draft) {
         final EmailComposer plugin = this;
 
-        this.cordova.getActivity().runOnUiThread(new Runnable() {
+        cordova.getActivity().runOnUiThread(new Runnable() {
             public void run() {
-                plugin.cordova.startActivityForResult(plugin, draft, 0);
+                cordova.startActivityForResult(plugin, Intent.createChooser(draft, "Select Email App"), 0);
             }
         });
     }

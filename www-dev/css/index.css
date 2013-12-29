@@ -232,38 +232,10 @@ section li {
     color: #484A52;
 }
 
-.button .icon {
-    display:none;
-}
-
-.isiOSseven nav {
-    padding-top: 15px !important;
-    height: 60px;
-}
-
-.isiOSseven nav h1, .isiOSseven nav div a {
-    top: 15px;
-}
-
-.isiOSseven nav>h1+a.button {
-    top: 20px;
-}
 nav > h1 + a.button.icon {
     top: 8px;
     font-size: 140%;
 }
-.isiOSseven nav>h1+a.button.icon {
-    top: 24px;
-}
-
-.isiOSseven nav a {
-    top: 3px;
-}
-
-.isiOSseven article {
-    top: 60px;
-}
-
 .loading {
     display: none !important;
 }
@@ -292,10 +264,6 @@ nav > h1 + a.button.icon {
 
 .carousel .cell img {
     width: 100%;
-}
-
-.cell:nth-child(1) img {
-    width: 200px;
 }
 
 .cell:nth-child(2) img {

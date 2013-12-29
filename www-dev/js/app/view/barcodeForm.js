@@ -15,6 +15,7 @@ require(["chui", "app/barcodescanner", "app/getBestPrice", "app/eventBus", "logg
         var launchScanner = $('#launch-scanner');
         var findBestPriceBtn = $('#find-the-best-price');
         var feedbackBtn = $('#feedback');
+        var icons = $('#search a');
 
         if ($.isAndroid) {
             feedbackBtn.removeClass('icon').html("Feedback");
@@ -28,7 +29,7 @@ require(["chui", "app/barcodescanner", "app/getBestPrice", "app/eventBus", "logg
                     analytics.trackEvent('Scanner', 'Closed', barcode);
                     setBarcode(barcode);
                 }, function(error) {
-                    alert('An error occured whilst using the barcode scanner' + error)
+                    alert('An error occured whilst using the barcode scanner: ' + error)
                 });
             });
 
@@ -59,6 +60,11 @@ require(["chui", "app/barcodescanner", "app/getBestPrice", "app/eventBus", "logg
                 });
             }
 
+            icons.on('singletap', function() {
+                window.open($(this).attr('href'), '_blank', 'location=yes');
+                return false;
+            });
+
             $('#feedback').on('click', handler);
             $('#feedback').on('singletap', handler);
         }
@@ -68,6 +74,7 @@ require(["chui", "app/barcodescanner", "app/getBestPrice", "app/eventBus", "logg
         }
 
         function onDeviceReady() {
+            document.body.style.minHeight=window.innerHeight + 'px';
             fastclick.attach(document.body);
             registerHandlers();
             document.addEventListener("backbutton", handleBackKey, false);

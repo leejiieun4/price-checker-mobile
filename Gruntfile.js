@@ -84,7 +84,7 @@ module.exports = function(grunt) {
           out: "www-dev/js/optimized.js",
           findNestedDependencies: true,
           wrap: true,
-          optimize: 'none'
+          //optimize: 'none'
         }
       }
     },
