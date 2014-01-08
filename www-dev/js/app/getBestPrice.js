@@ -16,8 +16,9 @@ define(['rsvp', 'logger'], function(rsvp, logger) {
                 var xhr = new XMLHttpRequest();
                 xhr.onreadystatechange = function() {
                     if (xhr.readyState==4) {
+                        xhr.onreadystatechange = function () {};
                         // Verify status code
-                        if(xhr.status!=200){
+                        if(xhr.status!=200 && (xhr.status !== 0 && !/MacIntel/.test(navigator.platform))){
             //                we can assume we're on a Mac and not device so lets mock out the response
                             if (xhr.status === 0 && /MacIntel/.test(navigator.platform)) {
                                 setTimeout(function() {
@@ -42,7 +43,7 @@ define(['rsvp', 'logger'], function(rsvp, logger) {
                             }
                         } else {
                             var response = JSON.parse(xhr.responseText);
-                            if (JSON.stringify(response.prices) === "{}") {
+                            if (JSON.stringify(response.prices) === "{}" || xhr.responseText == "") {
                                 reject("No matching items found for barcode " + response.barcode);
                                 analytics.trackEvent('getBestPrice', 'No Results', barcode);
 
